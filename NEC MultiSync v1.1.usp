@@ -252,6 +252,10 @@ Function OutputSourceResult(Integer i)
 		{
            	Selected_Input_Analog = 13;
 		}
+		case(13):
+		{
+           	Selected_Input_Analog = 14;
+		}
 	}	
 }
 
@@ -879,6 +883,11 @@ CHANGE Change_Source
 		{
         	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x36\x30\x30\x30\x30\x46\x03");
 		}
+		case(14)://Option Card
+		{
+        	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x36\x30\x30\x30\x30\x44\x03");
+		}
+		
 	}	
 }
 
