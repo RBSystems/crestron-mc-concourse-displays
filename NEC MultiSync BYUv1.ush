@@ -15,10 +15,10 @@
 [BEGIN]
   ObjTp=Symbol
   Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,718,756,854,
-  Exclusions_CDS=5
-  Inclusions_CDS=6
-  Name=NEC MultiSync v1.1
-  SmplCName=NEC MultiSync v1.1.usp
+  Exclusions_CDS=
+  Inclusions_CDS=5,6
+  Name=NEC MultiSync BYUv1
+  SmplCName=NEC MultiSync BYUv1.usp
   Code=1
   SysRev5=4.000
   SMWRev=3.00.00
@@ -76,7 +76,7 @@
   InputSigType26=Digital
   InputCue27=Right_D
   InputSigType27=Digital
-  InputCue28=Set
+  InputCue28=SetButton
   InputSigType28=Digital
   InputCue29=Picture_Mode
   InputSigType29=Digital
@@ -159,9 +159,9 @@
   SmplCOutputCue1=i#
   SmplCInputList2Cue1=an#
   SmplCOutputList2Cue1=ai#
-  SPlus2CompiledName=S2_NEC_MultiSync_v1_1
+  SPlus2CompiledName=S2_NEC_MultiSync_BYUv1
   SymJam=NonExclusive
-  FileName=NEC MultiSync v1.1.ush
+  FileName=NEC MultiSync BYUv1.ush
   SIMPLPlusModuleEncoding=0
 [END]
 [BEGIN]
