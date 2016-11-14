@@ -278,6 +278,12 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                     SELECTED_INPUT_ANALOG  .Value = (ushort) ( 14 ) ; 
                     } 
                 
+                else 
+                    { 
+                    __context__.SourceCodeLine = 261;
+                    Trace( "Error Unrecognized input value") ; 
+                    } 
+                
                 } 
                 
             }
@@ -289,7 +295,7 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
     private void OUTPUTANALOGCAPTIONRESULT (  SplusExecutionContext __context__, ushort I ) 
         { 
         
-        __context__.SourceCodeLine = 264;
+        __context__.SourceCodeLine = 268;
         
             {
             int __SPLS_TMPVAR__SWTCH_2__ = ((int)I);
@@ -297,55 +303,55 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 268;
+                    __context__.SourceCodeLine = 272;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 0 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 272;
+                    __context__.SourceCodeLine = 276;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 1 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 276;
+                    __context__.SourceCodeLine = 280;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 2 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 280;
+                    __context__.SourceCodeLine = 284;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 3 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 284;
+                    __context__.SourceCodeLine = 288;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 4 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 288;
+                    __context__.SourceCodeLine = 292;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 5 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 7) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 292;
+                    __context__.SourceCodeLine = 296;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 6 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 8) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 296;
+                    __context__.SourceCodeLine = 300;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 7 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_2__ == ( 9) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 300;
+                    __context__.SourceCodeLine = 304;
                     ANALOG_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 8 ) ; 
                     } 
                 
@@ -360,7 +366,7 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
     private void OUTPUTDIGITALCAPTIONRESULT (  SplusExecutionContext __context__, ushort I ) 
         { 
         
-        __context__.SourceCodeLine = 307;
+        __context__.SourceCodeLine = 311;
         
             {
             int __SPLS_TMPVAR__SWTCH_3__ = ((int)I);
@@ -368,43 +374,43 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 311;
+                    __context__.SourceCodeLine = 315;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 0 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 315;
+                    __context__.SourceCodeLine = 319;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 1 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 319;
+                    __context__.SourceCodeLine = 323;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 2 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 323;
+                    __context__.SourceCodeLine = 327;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 3 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 327;
+                    __context__.SourceCodeLine = 331;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 4 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 331;
+                    __context__.SourceCodeLine = 335;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 5 ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_3__ == ( 7) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 335;
+                    __context__.SourceCodeLine = 339;
                     DIGITAL_CLOSED_CAPTION_ANALOG  .Value = (ushort) ( 6 ) ; 
                     } 
                 
@@ -421,13 +427,13 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
         ushort RESULT = 0;
         
         
-        __context__.SourceCodeLine = 345;
-        RX_MESSAGETYPE = (ushort) ( Byte( CMD , (int)( 5 ) ) ) ; 
-        __context__.SourceCodeLine = 347;
-        RX_MESSAGELENGTH = (ushort) ( ((16 * Functions.HextoI( Functions.Mid( CMD , (int)( 6 ) , (int)( 1 ) ) )) + Functions.HextoI( Functions.Mid( CMD , (int)( 7 ) , (int)( 1 ) ) )) ) ; 
-        __context__.SourceCodeLine = 348;
-        MakeString ( MESSAGE , "RX Found Message Length: {0:d}", (ushort)RX_MESSAGELENGTH) ; 
         __context__.SourceCodeLine = 349;
+        RX_MESSAGETYPE = (ushort) ( Byte( CMD , (int)( 5 ) ) ) ; 
+        __context__.SourceCodeLine = 352;
+        RX_MESSAGELENGTH = (ushort) ( ((16 * Functions.HextoI( Functions.Mid( CMD , (int)( 6 ) , (int)( 1 ) ) )) + Functions.HextoI( Functions.Mid( CMD , (int)( 7 ) , (int)( 1 ) ) )) ) ; 
+        __context__.SourceCodeLine = 353;
+        MakeString ( MESSAGE , "RX Found Message Length: {0:d}", (ushort)RX_MESSAGELENGTH) ; 
+        __context__.SourceCodeLine = 354;
         
             {
             int __SPLS_TMPVAR__SWTCH_4__ = ((int)RX_MESSAGETYPE);
@@ -435,25 +441,25 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 66) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 353;
+                    __context__.SourceCodeLine = 358;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 9 ) , (int)( 2 ) ) == "02"))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 355;
+                        __context__.SourceCodeLine = 360;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 2 ) ) == "00"))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 357;
+                            __context__.SourceCodeLine = 362;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 13 ) , (int)( 4 ) ) == "D600"))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 359;
+                                __context__.SourceCodeLine = 364;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 24 ) , (int)( 1 ) ) == "1"))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 361;
+                                    __context__.SourceCodeLine = 366;
                                     Functions.Pulse ( 10, POWER_IS_ON ) ; 
                                     } 
                                 
                                 else 
                                     { 
-                                    __context__.SourceCodeLine = 365;
+                                    __context__.SourceCodeLine = 370;
                                     Functions.Pulse ( 10, POWER_IS_OFF ) ; 
                                     } 
                                 
@@ -463,7 +469,7 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 371;
+                            __context__.SourceCodeLine = 376;
                             Trace( "Error received while executing command") ; 
                             } 
                         
@@ -471,25 +477,25 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                     
                     else 
                         {
-                        __context__.SourceCodeLine = 374;
+                        __context__.SourceCodeLine = 379;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 9 ) , (int)( 2 ) ) == "00"))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 376;
+                            __context__.SourceCodeLine = 381;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 6 ) ) == "C203D6"))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 378;
+                                __context__.SourceCodeLine = 383;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 20 ) , (int)( 1 ) ) == "1"))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 380;
+                                    __context__.SourceCodeLine = 385;
                                     Functions.Pulse ( 10, POWER_IS_ON ) ; 
                                     } 
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 382;
+                                    __context__.SourceCodeLine = 387;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 20 ) , (int)( 1 ) ) == "4"))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 384;
+                                        __context__.SourceCodeLine = 389;
                                         Functions.Pulse ( 10, POWER_IS_OFF ) ; 
                                         } 
                                     
@@ -501,7 +507,7 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                         
                         else 
                             { 
-                            __context__.SourceCodeLine = 390;
+                            __context__.SourceCodeLine = 395;
                             Trace( "Error received while executing command") ; 
                             } 
                         
@@ -511,25 +517,25 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 68) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 395;
+                    __context__.SourceCodeLine = 400;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 9 ) , (int)( 2 ) ) == "00"))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 397;
+                        __context__.SourceCodeLine = 402;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "02BE"))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 399;
+                            __context__.SourceCodeLine = 404;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 18 ) , (int)( 1 ) ) == "1"))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 401;
+                                __context__.SourceCodeLine = 406;
                                 Functions.Pulse ( 10, POWER_IS_ON ) ; 
                                 } 
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 403;
+                                __context__.SourceCodeLine = 408;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 18 ) , (int)( 1 ) ) == "2"))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 405;
+                                    __context__.SourceCodeLine = 410;
                                     Functions.Pulse ( 10, POWER_IS_OFF ) ; 
                                     } 
                                 
@@ -539,30 +545,30 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 408;
+                            __context__.SourceCodeLine = 413;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "0062"))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 411;
+                                __context__.SourceCodeLine = 416;
                                 if ( Functions.TestForTrue  ( ( Functions.Not( _MUTED ))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 413;
+                                    __context__.SourceCodeLine = 418;
                                     _VOLUME = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                    __context__.SourceCodeLine = 414;
+                                    __context__.SourceCodeLine = 419;
                                     VOLUME_ANALOG  .Value = (ushort) ( _VOLUME ) ; 
-                                    __context__.SourceCodeLine = 415;
+                                    __context__.SourceCodeLine = 420;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (_VOLUME == 0))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 417;
+                                        __context__.SourceCodeLine = 422;
                                         _MUTED = (ushort) ( 1 ) ; 
-                                        __context__.SourceCodeLine = 418;
+                                        __context__.SourceCodeLine = 423;
                                         Functions.Pulse ( 10, MUTE_IS_ON ) ; 
                                         } 
                                     
                                     else 
                                         { 
-                                        __context__.SourceCodeLine = 422;
+                                        __context__.SourceCodeLine = 427;
                                         _MUTED = (ushort) ( 0 ) ; 
-                                        __context__.SourceCodeLine = 423;
+                                        __context__.SourceCodeLine = 428;
                                         Functions.Pulse ( 10, MUTE_IS_OFF ) ; 
                                         } 
                                     
@@ -572,54 +578,54 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 427;
+                                __context__.SourceCodeLine = 432;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "0060"))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 429;
+                                    __context__.SourceCodeLine = 434;
                                     OUTPUTSOURCERESULT (  __context__ , (ushort)( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) )) ; 
                                     } 
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 431;
+                                    __context__.SourceCodeLine = 436;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "008D"))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 433;
+                                        __context__.SourceCodeLine = 438;
                                         RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                        __context__.SourceCodeLine = 434;
+                                        __context__.SourceCodeLine = 439;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 0))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 436;
+                                            __context__.SourceCodeLine = 441;
                                             _MUTED = (ushort) ( 0 ) ; 
-                                            __context__.SourceCodeLine = 437;
+                                            __context__.SourceCodeLine = 442;
                                             Functions.Pulse ( 10, MUTE_IS_OFF ) ; 
                                             } 
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 440;
+                                            __context__.SourceCodeLine = 445;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 1))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 442;
+                                                __context__.SourceCodeLine = 447;
                                                 _MUTED = (ushort) ( 1 ) ; 
-                                                __context__.SourceCodeLine = 443;
+                                                __context__.SourceCodeLine = 448;
                                                 _VOLUME = (ushort) ( 0 ) ; 
-                                                __context__.SourceCodeLine = 444;
+                                                __context__.SourceCodeLine = 449;
                                                 VOLUME_ANALOG  .Value = (ushort) ( 0 ) ; 
-                                                __context__.SourceCodeLine = 445;
+                                                __context__.SourceCodeLine = 450;
                                                 Functions.Pulse ( 10, MUTE_IS_ON ) ; 
                                                 } 
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 447;
+                                                __context__.SourceCodeLine = 452;
                                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 2))  ) ) 
                                                     { 
-                                                    __context__.SourceCodeLine = 449;
+                                                    __context__.SourceCodeLine = 454;
                                                     _MUTED = (ushort) ( 0 ) ; 
-                                                    __context__.SourceCodeLine = 450;
+                                                    __context__.SourceCodeLine = 455;
                                                     VOLUME_ANALOG  .Value = (ushort) ( _VOLUME ) ; 
-                                                    __context__.SourceCodeLine = 451;
+                                                    __context__.SourceCodeLine = 456;
                                                     Functions.Pulse ( 10, MUTE_IS_OFF ) ; 
                                                     } 
                                                 
@@ -631,46 +637,46 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 454;
+                                        __context__.SourceCodeLine = 459;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "1084"))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 456;
+                                            __context__.SourceCodeLine = 461;
                                             RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                            __context__.SourceCodeLine = 457;
+                                            __context__.SourceCodeLine = 462;
                                             OUTPUTANALOGCAPTIONRESULT (  __context__ , (ushort)( RESULT )) ; 
                                             } 
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 459;
+                                            __context__.SourceCodeLine = 464;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "10A1"))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 461;
+                                                __context__.SourceCodeLine = 466;
                                                 RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                                __context__.SourceCodeLine = 462;
+                                                __context__.SourceCodeLine = 467;
                                                 OUTPUTDIGITALCAPTIONRESULT (  __context__ , (ushort)( RESULT )) ; 
                                                 } 
                                             
                                             else 
                                                 {
-                                                __context__.SourceCodeLine = 464;
+                                                __context__.SourceCodeLine = 469;
                                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "00FB"))  ) ) 
                                                     { 
-                                                    __context__.SourceCodeLine = 466;
+                                                    __context__.SourceCodeLine = 471;
                                                     RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                                    __context__.SourceCodeLine = 467;
+                                                    __context__.SourceCodeLine = 472;
                                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 1))  ) ) 
                                                         { 
-                                                        __context__.SourceCodeLine = 469;
+                                                        __context__.SourceCodeLine = 474;
                                                         Functions.Pulse ( 10, CONTROL_BUTTON_IS_LOCKED ) ; 
                                                         } 
                                                     
                                                     else 
                                                         {
-                                                        __context__.SourceCodeLine = 471;
+                                                        __context__.SourceCodeLine = 476;
                                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 0))  ) ) 
                                                             { 
-                                                            __context__.SourceCodeLine = 473;
+                                                            __context__.SourceCodeLine = 478;
                                                             Functions.Pulse ( 10, CONTROL_BUTTON_IS_UNLOCKED ) ; 
                                                             } 
                                                         
@@ -694,7 +700,7 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                     
                     else 
                         { 
-                        __context__.SourceCodeLine = 479;
+                        __context__.SourceCodeLine = 484;
                         Trace( "Error received while retrieving value") ; 
                         } 
                     
@@ -702,41 +708,41 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_4__ == ( 70) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 484;
+                    __context__.SourceCodeLine = 489;
                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 9 ) , (int)( 2 ) ) == "00"))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 486;
+                        __context__.SourceCodeLine = 491;
                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "0060"))  ) ) 
                             { 
-                            __context__.SourceCodeLine = 488;
+                            __context__.SourceCodeLine = 493;
                             RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                            __context__.SourceCodeLine = 489;
+                            __context__.SourceCodeLine = 494;
                             OUTPUTSOURCERESULT (  __context__ , (ushort)( RESULT )) ; 
                             } 
                         
                         else 
                             {
-                            __context__.SourceCodeLine = 491;
+                            __context__.SourceCodeLine = 496;
                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "0062"))  ) ) 
                                 { 
-                                __context__.SourceCodeLine = 493;
+                                __context__.SourceCodeLine = 498;
                                 _VOLUME = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                __context__.SourceCodeLine = 494;
+                                __context__.SourceCodeLine = 499;
                                 VOLUME_ANALOG  .Value = (ushort) ( _VOLUME ) ; 
-                                __context__.SourceCodeLine = 495;
+                                __context__.SourceCodeLine = 500;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (_VOLUME == 0))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 497;
+                                    __context__.SourceCodeLine = 502;
                                     _MUTED = (ushort) ( 1 ) ; 
-                                    __context__.SourceCodeLine = 498;
+                                    __context__.SourceCodeLine = 503;
                                     Functions.Pulse ( 10, MUTE_IS_ON ) ; 
                                     } 
                                 
                                 else 
                                     { 
-                                    __context__.SourceCodeLine = 502;
+                                    __context__.SourceCodeLine = 507;
                                     _MUTED = (ushort) ( 0 ) ; 
-                                    __context__.SourceCodeLine = 503;
+                                    __context__.SourceCodeLine = 508;
                                     Functions.Pulse ( 10, MUTE_IS_OFF ) ; 
                                     } 
                                 
@@ -744,39 +750,39 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                             
                             else 
                                 {
-                                __context__.SourceCodeLine = 506;
+                                __context__.SourceCodeLine = 511;
                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "008D"))  ) ) 
                                     { 
-                                    __context__.SourceCodeLine = 508;
+                                    __context__.SourceCodeLine = 513;
                                     RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                    __context__.SourceCodeLine = 509;
+                                    __context__.SourceCodeLine = 514;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 1))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 511;
+                                        __context__.SourceCodeLine = 516;
                                         _MUTED = (ushort) ( 1 ) ; 
-                                        __context__.SourceCodeLine = 512;
+                                        __context__.SourceCodeLine = 517;
                                         Functions.Pulse ( 10, MUTE_IS_ON ) ; 
-                                        __context__.SourceCodeLine = 513;
+                                        __context__.SourceCodeLine = 518;
                                         VOLUME_ANALOG  .Value = (ushort) ( 0 ) ; 
                                         } 
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 515;
+                                        __context__.SourceCodeLine = 520;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 2))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 517;
+                                            __context__.SourceCodeLine = 522;
                                             _MUTED = (ushort) ( 0 ) ; 
-                                            __context__.SourceCodeLine = 518;
+                                            __context__.SourceCodeLine = 523;
                                             Functions.Pulse ( 10, MUTE_IS_OFF ) ; 
-                                            __context__.SourceCodeLine = 519;
+                                            __context__.SourceCodeLine = 524;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (_VOLUME == 0))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 521;
+                                                __context__.SourceCodeLine = 526;
                                                 _VOLUME = (ushort) ( 1 ) ; 
                                                 } 
                                             
-                                            __context__.SourceCodeLine = 523;
+                                            __context__.SourceCodeLine = 528;
                                             VOLUME_ANALOG  .Value = (ushort) ( _VOLUME ) ; 
                                             } 
                                         
@@ -786,46 +792,46 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                                 
                                 else 
                                     {
-                                    __context__.SourceCodeLine = 526;
+                                    __context__.SourceCodeLine = 531;
                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "1084"))  ) ) 
                                         { 
-                                        __context__.SourceCodeLine = 528;
+                                        __context__.SourceCodeLine = 533;
                                         RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                        __context__.SourceCodeLine = 529;
+                                        __context__.SourceCodeLine = 534;
                                         OUTPUTANALOGCAPTIONRESULT (  __context__ , (ushort)( RESULT )) ; 
                                         } 
                                     
                                     else 
                                         {
-                                        __context__.SourceCodeLine = 531;
+                                        __context__.SourceCodeLine = 536;
                                         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "10A1"))  ) ) 
                                             { 
-                                            __context__.SourceCodeLine = 533;
+                                            __context__.SourceCodeLine = 538;
                                             RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                            __context__.SourceCodeLine = 534;
+                                            __context__.SourceCodeLine = 539;
                                             OUTPUTDIGITALCAPTIONRESULT (  __context__ , (ushort)( RESULT )) ; 
                                             } 
                                         
                                         else 
                                             {
-                                            __context__.SourceCodeLine = 536;
+                                            __context__.SourceCodeLine = 541;
                                             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (Functions.Mid( CMD , (int)( 11 ) , (int)( 4 ) ) == "00FB"))  ) ) 
                                                 { 
-                                                __context__.SourceCodeLine = 538;
+                                                __context__.SourceCodeLine = 543;
                                                 RESULT = (ushort) ( Functions.HextoI( Functions.Mid( CMD , (int)( 23 ) , (int)( 2 ) ) ) ) ; 
-                                                __context__.SourceCodeLine = 539;
+                                                __context__.SourceCodeLine = 544;
                                                 if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 1))  ) ) 
                                                     { 
-                                                    __context__.SourceCodeLine = 541;
+                                                    __context__.SourceCodeLine = 546;
                                                     Functions.Pulse ( 10, CONTROL_BUTTON_IS_LOCKED ) ; 
                                                     } 
                                                 
                                                 else 
                                                     {
-                                                    __context__.SourceCodeLine = 543;
+                                                    __context__.SourceCodeLine = 548;
                                                     if ( Functions.TestForTrue  ( ( Functions.BoolToInt (RESULT == 0))  ) ) 
                                                         { 
-                                                        __context__.SourceCodeLine = 545;
+                                                        __context__.SourceCodeLine = 550;
                                                         Functions.Pulse ( 10, CONTROL_BUTTON_IS_UNLOCKED ) ; 
                                                         } 
                                                     
@@ -847,10 +853,16 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
                     
                     else 
                         { 
-                        __context__.SourceCodeLine = 551;
+                        __context__.SourceCodeLine = 556;
                         Trace( "Error received while Setting value") ; 
                         } 
                     
+                    } 
+                
+                else 
+                    { 
+                    __context__.SourceCodeLine = 561;
+                    Trace( "Error Unrecognized command response") ; 
                     } 
                 
                 } 
@@ -869,20 +881,22 @@ namespace UserModule_NEC_MULTISYNC_BYUV1
         {
             SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
             
-            __context__.SourceCodeLine = 564;
+            __context__.SourceCodeLine = 573;
             ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0036\u0002\u0030\u0031\u0044\u0036\u0003") ; 
-            __context__.SourceCodeLine = 565;
+            __context__.SourceCodeLine = 574;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0038\u0044\u0003") ; 
-            __context__.SourceCodeLine = 566;
+            __context__.SourceCodeLine = 575;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0036\u0032\u0003") ; 
-            __context__.SourceCodeLine = 567;
+            __context__.SourceCodeLine = 576;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0036\u0030\u0003") ; 
-            __context__.SourceCodeLine = 568;
+            __context__.SourceCodeLine = 577;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0031\u0030\u0038\u0034\u0003") ; 
-            __context__.SourceCodeLine = 569;
+            __context__.SourceCodeLine = 578;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0031\u0030\u0041\u0031\u0003") ; 
-            __context__.SourceCodeLine = 570;
+            __context__.SourceCodeLine = 579;
             ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0046\u0042\u0003") ; 
+            __context__.SourceCodeLine = 580;
+            ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0036\u0002\u0043\u0032\u0032\u0043\u0003") ; 
             
             
         }
@@ -900,18 +914,20 @@ object POLL_MAIN_INFO_NO_VOLUME_OnPush_1 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 575;
+        __context__.SourceCodeLine = 586;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0036\u0002\u0030\u0031\u0044\u0036\u0003") ; 
-        __context__.SourceCodeLine = 576;
+        __context__.SourceCodeLine = 587;
         ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0038\u0044\u0003") ; 
-        __context__.SourceCodeLine = 577;
+        __context__.SourceCodeLine = 588;
         ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0036\u0030\u0003") ; 
-        __context__.SourceCodeLine = 578;
+        __context__.SourceCodeLine = 589;
         ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0031\u0030\u0038\u0034\u0003") ; 
-        __context__.SourceCodeLine = 579;
+        __context__.SourceCodeLine = 590;
         ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0031\u0030\u0041\u0031\u0003") ; 
-        __context__.SourceCodeLine = 580;
+        __context__.SourceCodeLine = 591;
         ADDCOMMAND (  __context__ , "\u0030\u0043\u0030\u0036\u0002\u0030\u0030\u0046\u0042\u0003") ; 
+        __context__.SourceCodeLine = 592;
+        ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0036\u0002\u0043\u0032\u0032\u0043\u0003") ; 
         
         
     }
@@ -929,7 +945,7 @@ object TURN_POWER_ON_OnPush_2 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 585;
+        __context__.SourceCodeLine = 597;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0030\u0033\u0044\u0036\u0030\u0030\u0030\u0031\u0003") ; 
         
         
@@ -948,7 +964,7 @@ object TURN_POWER_OFF_OnPush_3 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 590;
+        __context__.SourceCodeLine = 602;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0030\u0033\u0044\u0036\u0030\u0030\u0030\u0034\u0003") ; 
         
         
@@ -967,9 +983,9 @@ object TURN_MUTE_ON_OnPush_4 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 595;
+        __context__.SourceCodeLine = 607;
         _VOLUMEBEFOREMUTED = (ushort) ( _VOLUME ) ; 
-        __context__.SourceCodeLine = 596;
+        __context__.SourceCodeLine = 608;
         ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0032\u0030\u0030\u0030\u0030\u0003") ; 
         
         
@@ -993,20 +1009,20 @@ object TURN_MUTE_OFF_OnPush_5 ( Object __EventInfo__ )
         TEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 3, this );
         
         
-        __context__.SourceCodeLine = 602;
+        __context__.SourceCodeLine = 614;
         _VOLUME = (ushort) ( _VOLUMEBEFOREMUTED ) ; 
-        __context__.SourceCodeLine = 603;
+        __context__.SourceCodeLine = 615;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt (_VOLUME == 0))  ) ) 
             { 
-            __context__.SourceCodeLine = 605;
+            __context__.SourceCodeLine = 617;
             _VOLUME = (ushort) ( 1 ) ; 
             } 
         
-        __context__.SourceCodeLine = 607;
+        __context__.SourceCodeLine = 619;
         MakeString ( TEMP2 , "{0:X2}", _VOLUME) ; 
-        __context__.SourceCodeLine = 608;
+        __context__.SourceCodeLine = 620;
         MakeString ( TEMP , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0032\u0030\u0030{0}{1}\u0003", Functions.Mid ( TEMP2 ,  (int) ( 1 ) ,  (int) ( 1 ) ) , Functions.Mid ( TEMP2 ,  (int) ( 2 ) ,  (int) ( 1 ) ) ) ; 
-        __context__.SourceCodeLine = 609;
+        __context__.SourceCodeLine = 621;
         ADDCOMMAND (  __context__ , TEMP) ; 
         
         
@@ -1025,7 +1041,7 @@ object SAVE_CURRENT_SETTINGS_OnPush_6 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 614;
+        __context__.SourceCodeLine = 626;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0034\u0002\u0030\u0043\u0003") ; 
         
         
@@ -1044,7 +1060,7 @@ object SET_TV_CHANNEL_OnPush_7 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 619;
+        __context__.SourceCodeLine = 631;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0030\u0033\u0044\u0036\u0030\u0030\u0030\u0034\u0003") ; 
         
         
@@ -1063,7 +1079,7 @@ object TV_CHANNEL_UP_OnPush_8 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 624;
+        __context__.SourceCodeLine = 636;
         ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0038\u0042\u0030\u0030\u0030\u0031\u0003") ; 
         
         
@@ -1087,7 +1103,7 @@ object TV_CHANNEL_DOWN_OnPush_9 ( Object __EventInfo__ )
         RESULT  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 5, this );
         
         
-        __context__.SourceCodeLine = 631;
+        __context__.SourceCodeLine = 643;
         ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0038\u0042\u0030\u0030\u0030\u0032\u0003") ; 
         
         
@@ -1106,7 +1122,7 @@ object LOCK_CONTROL_BUTTON_OnPush_10 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 636;
+        __context__.SourceCodeLine = 648;
         ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0046\u0042\u0030\u0030\u0030\u0031\u0003") ; 
         
         
@@ -1125,7 +1141,7 @@ object UNLOCK_CONTROL_BUTTON_OnPush_11 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 641;
+        __context__.SourceCodeLine = 653;
         ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0046\u0042\u0030\u0030\u0030\u0030\u0003") ; 
         
         
@@ -1144,7 +1160,7 @@ object TOGGLE_POWER_OnPush_12 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 647;
+        __context__.SourceCodeLine = 659;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0030\u0033\u0030\u0033\u0003") ; 
         
         
@@ -1163,7 +1179,7 @@ object TOGGLE_MUTE_OnPush_13 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 652;
+        __context__.SourceCodeLine = 664;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0042\u0030\u0033\u0003") ; 
         
         
@@ -1187,16 +1203,16 @@ object VOL_UP_OnPush_14 ( Object __EventInfo__ )
         TEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 3, this );
         
         
-        __context__.SourceCodeLine = 661;
+        __context__.SourceCodeLine = 673;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( _VOLUME < 100 ) ) && Functions.TestForTrue ( Functions.Not( _MUTED ) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 663;
+            __context__.SourceCodeLine = 675;
             _VOLUME = (ushort) ( (_VOLUME + 1) ) ; 
-            __context__.SourceCodeLine = 664;
+            __context__.SourceCodeLine = 676;
             MakeString ( TEMP2 , "{0:X2}", _VOLUME) ; 
-            __context__.SourceCodeLine = 665;
+            __context__.SourceCodeLine = 677;
             MakeString ( TEMP , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0032\u0030\u0030{0}{1}\u0003", Functions.Mid ( TEMP2 ,  (int) ( 1 ) ,  (int) ( 1 ) ) , Functions.Mid ( TEMP2 ,  (int) ( 2 ) ,  (int) ( 1 ) ) ) ; 
-            __context__.SourceCodeLine = 666;
+            __context__.SourceCodeLine = 678;
             ADDCOMMAND (  __context__ , TEMP) ; 
             } 
         
@@ -1222,23 +1238,23 @@ object VOL_DOWN_OnPush_15 ( Object __EventInfo__ )
         TEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 3, this );
         
         
-        __context__.SourceCodeLine = 676;
+        __context__.SourceCodeLine = 688;
         if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( _VOLUME > 0 ) ) && Functions.TestForTrue ( Functions.Not( _MUTED ) )) ))  ) ) 
             { 
-            __context__.SourceCodeLine = 678;
+            __context__.SourceCodeLine = 690;
             if ( Functions.TestForTrue  ( ( Functions.BoolToInt (_VOLUME == 1))  ) ) 
                 { 
-                __context__.SourceCodeLine = 680;
+                __context__.SourceCodeLine = 692;
                 _VOLUMEBEFOREMUTED = (ushort) ( _VOLUME ) ; 
                 } 
             
-            __context__.SourceCodeLine = 682;
+            __context__.SourceCodeLine = 694;
             _VOLUME = (ushort) ( (_VOLUME - 1) ) ; 
-            __context__.SourceCodeLine = 683;
+            __context__.SourceCodeLine = 695;
             MakeString ( TEMP2 , "{0:X2}", _VOLUME) ; 
-            __context__.SourceCodeLine = 684;
+            __context__.SourceCodeLine = 696;
             MakeString ( TEMP , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0032\u0030\u0030{0}{1}\u0003", Functions.Mid ( TEMP2 ,  (int) ( 1 ) ,  (int) ( 1 ) ) , Functions.Mid ( TEMP2 ,  (int) ( 2 ) ,  (int) ( 1 ) ) ) ; 
-            __context__.SourceCodeLine = 685;
+            __context__.SourceCodeLine = 697;
             ADDCOMMAND (  __context__ , TEMP) ; 
             } 
         
@@ -1259,7 +1275,7 @@ object GUIDE_OnPush_16 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 691;
+        __context__.SourceCodeLine = 703;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0033\u0034\u0030\u0033\u0003") ; 
         
         
@@ -1278,7 +1294,7 @@ object GUIDE_OnPush_17 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 696;
+        __context__.SourceCodeLine = 708;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0033\u0034\u0030\u0033\u0003") ; 
         
         
@@ -1297,7 +1313,7 @@ object NUMERIC_FORMAT_OnPush_18 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 701;
+        __context__.SourceCodeLine = 713;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0034\u0034\u0030\u0033\u0003") ; 
         
         
@@ -1316,7 +1332,7 @@ object NUMBERIC_ENT_OnPush_19 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 706;
+        __context__.SourceCodeLine = 718;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0034\u0035\u0030\u0033\u0003") ; 
         
         
@@ -1335,7 +1351,7 @@ object DISPLAY_OnPush_20 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 711;
+        __context__.SourceCodeLine = 723;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0039\u0030\u0033\u0003") ; 
         
         
@@ -1354,7 +1370,7 @@ object MENU_OnPush_21 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 716;
+        __context__.SourceCodeLine = 728;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0032\u0030\u0030\u0033\u0003") ; 
         
         
@@ -1373,7 +1389,7 @@ object EXIT_OnPush_22 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 721;
+        __context__.SourceCodeLine = 733;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0046\u0030\u0033\u0003") ; 
         
         
@@ -1392,7 +1408,7 @@ object AUTOSETUP_OnPush_23 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 726;
+        __context__.SourceCodeLine = 738;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0043\u0030\u0033\u0003") ; 
         
         
@@ -1411,7 +1427,7 @@ object UP_OnPush_24 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 731;
+        __context__.SourceCodeLine = 743;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0035\u0030\u0033\u0003") ; 
         
         
@@ -1430,7 +1446,7 @@ object DOWN_OnPush_25 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 736;
+        __context__.SourceCodeLine = 748;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0034\u0030\u0033\u0003") ; 
         
         
@@ -1449,7 +1465,7 @@ object LEFT_D_OnPush_26 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 741;
+        __context__.SourceCodeLine = 753;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0032\u0031\u0030\u0033\u0003") ; 
         
         
@@ -1468,7 +1484,7 @@ object RIGHT_D_OnPush_27 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 746;
+        __context__.SourceCodeLine = 758;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0032\u0032\u0030\u0033\u0003") ; 
         
         
@@ -1487,7 +1503,7 @@ object SETBUTTON_OnPush_28 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 751;
+        __context__.SourceCodeLine = 763;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0032\u0033\u0030\u0033\u0003") ; 
         
         
@@ -1506,7 +1522,7 @@ object PICTURE_MODE_OnPush_29 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 756;
+        __context__.SourceCodeLine = 768;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0031\u0044\u0030\u0033\u0003") ; 
         
         
@@ -1525,7 +1541,7 @@ object ASPECT_OnPush_30 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 761;
+        __context__.SourceCodeLine = 773;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0032\u0039\u0030\u0033\u0003") ; 
         
         
@@ -1544,7 +1560,7 @@ object SOUND_OnPush_31 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 766;
+        __context__.SourceCodeLine = 778;
         ADDCOMMAND (  __context__ , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030\u0034\u0033\u0030\u0033\u0003") ; 
         
         
@@ -1568,11 +1584,11 @@ object NUMBERS_OnPush_32 ( Object __EventInfo__ )
         TEMP  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 50, this );
         
         
-        __context__.SourceCodeLine = 773;
+        __context__.SourceCodeLine = 785;
         I = (ushort) ( Functions.GetLastModifiedArrayIndex( __SignalEventArg__ ) ) ; 
-        __context__.SourceCodeLine = 774;
+        __context__.SourceCodeLine = 786;
         MakeString ( TEMP , "\u0030\u0041\u0030\u0043\u0002\u0043\u0032\u0031\u0030\u0030\u0030") ; 
-        __context__.SourceCodeLine = 776;
+        __context__.SourceCodeLine = 788;
         
             {
             int __SPLS_TMPVAR__SWTCH_5__ = ((int)I);
@@ -1580,61 +1596,61 @@ object NUMBERS_OnPush_32 ( Object __EventInfo__ )
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 780;
+                    __context__.SourceCodeLine = 792;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0038"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 784;
+                    __context__.SourceCodeLine = 796;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0039"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 788;
+                    __context__.SourceCodeLine = 800;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0041"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 792;
+                    __context__.SourceCodeLine = 804;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0042"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 796;
+                    __context__.SourceCodeLine = 808;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0043"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 800;
+                    __context__.SourceCodeLine = 812;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0044"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 7) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 804;
+                    __context__.SourceCodeLine = 816;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0045"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 8) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 808;
+                    __context__.SourceCodeLine = 820;
                     TEMP  .UpdateValue ( TEMP + "\u0030\u0046"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 9) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 812;
+                    __context__.SourceCodeLine = 824;
                     TEMP  .UpdateValue ( TEMP + "\u0031\u0030"  ) ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_5__ == ( 10) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 816;
+                    __context__.SourceCodeLine = 828;
                     TEMP  .UpdateValue ( TEMP + "\u0031\u0032"  ) ; 
                     } 
                 
@@ -1643,9 +1659,9 @@ object NUMBERS_OnPush_32 ( Object __EventInfo__ )
             }
             
         
-        __context__.SourceCodeLine = 820;
+        __context__.SourceCodeLine = 832;
         TEMP  .UpdateValue ( TEMP + "\u0030\u0033\u0003"  ) ; 
-        __context__.SourceCodeLine = 821;
+        __context__.SourceCodeLine = 833;
         ADDCOMMAND (  __context__ , TEMP) ; 
         
         
@@ -1669,7 +1685,7 @@ object CHANGE_SOURCE_OnChange_33 ( Object __EventInfo__ )
         RESULT  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 5, this );
         
         
-        __context__.SourceCodeLine = 828;
+        __context__.SourceCodeLine = 840;
         
             {
             int __SPLS_TMPVAR__SWTCH_6__ = ((int)CHANGE_SOURCE  .UshortValue);
@@ -1677,91 +1693,91 @@ object CHANGE_SOURCE_OnChange_33 ( Object __EventInfo__ )
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 0) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 832;
+                    __context__.SourceCodeLine = 844;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0030\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 836;
+                    __context__.SourceCodeLine = 848;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0031\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 840;
+                    __context__.SourceCodeLine = 852;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0032\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 844;
+                    __context__.SourceCodeLine = 856;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0033\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 848;
+                    __context__.SourceCodeLine = 860;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0035\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 852;
+                    __context__.SourceCodeLine = 864;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0036\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 856;
+                    __context__.SourceCodeLine = 868;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0037\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 7) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 860;
+                    __context__.SourceCodeLine = 872;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0043\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 8) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 864;
+                    __context__.SourceCodeLine = 876;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0034\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 9) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 868;
+                    __context__.SourceCodeLine = 880;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0041\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 10) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 872;
+                    __context__.SourceCodeLine = 884;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0031\u0031\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 11) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 876;
+                    __context__.SourceCodeLine = 888;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0031\u0032\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 12) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 880;
+                    __context__.SourceCodeLine = 892;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0031\u0033\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 13) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 884;
+                    __context__.SourceCodeLine = 896;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0046\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_6__ == ( 14) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 888;
+                    __context__.SourceCodeLine = 900;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0030\u0030\u0030\u0030\u0044\u0003") ; 
                     } 
                 
@@ -1792,13 +1808,13 @@ object CHANGE_VOLUME_LEVEL_OnChange_34 ( Object __EventInfo__ )
         TEMP2  = new CrestronString( Crestron.Logos.SplusObjects.CrestronStringEncoding.eEncodingASCII, 3, this );
         
         
-        __context__.SourceCodeLine = 897;
+        __context__.SourceCodeLine = 909;
         MakeString ( TEMP2 , "{0:X2}", CHANGE_VOLUME_LEVEL  .UshortValue) ; 
-        __context__.SourceCodeLine = 899;
+        __context__.SourceCodeLine = 911;
         _VOLUME = (ushort) ( CHANGE_VOLUME_LEVEL  .UshortValue ) ; 
-        __context__.SourceCodeLine = 900;
+        __context__.SourceCodeLine = 912;
         MakeString ( TEMP , "\u0030\u0045\u0030\u0041\u0002\u0030\u0030\u0036\u0032\u0030\u0030{0}{1}\u0003", Functions.Mid ( TEMP2 ,  (int) ( 1 ) ,  (int) ( 1 ) ) , Functions.Mid ( TEMP2 ,  (int) ( 2 ) ,  (int) ( 1 ) ) ) ; 
-        __context__.SourceCodeLine = 901;
+        __context__.SourceCodeLine = 913;
         ADDCOMMAND (  __context__ , TEMP) ; 
         
         
@@ -1817,7 +1833,7 @@ object CHANGE_TV_CHANNEL_OnChange_35 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 906;
+        __context__.SourceCodeLine = 918;
         CURRENTTVCHANNEL = (ushort) ( CHANGE_TV_CHANNEL  .UshortValue ) ; 
         
         
@@ -1836,7 +1852,7 @@ object CHANGE_ANALOG_CLOSED_CAPTION_OnChange_36 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 911;
+        __context__.SourceCodeLine = 923;
         
             {
             int __SPLS_TMPVAR__SWTCH_7__ = ((int)CHANGE_SOURCE  .UshortValue);
@@ -1844,55 +1860,55 @@ object CHANGE_ANALOG_CLOSED_CAPTION_OnChange_36 ( Object __EventInfo__ )
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 0) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 915;
+                    __context__.SourceCodeLine = 927;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0031\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 919;
+                    __context__.SourceCodeLine = 931;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0032\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 923;
+                    __context__.SourceCodeLine = 935;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0033\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 927;
+                    __context__.SourceCodeLine = 939;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0034\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 931;
+                    __context__.SourceCodeLine = 943;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0035\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 935;
+                    __context__.SourceCodeLine = 947;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0036\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 939;
+                    __context__.SourceCodeLine = 951;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0031\u0037\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 7) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 943;
+                    __context__.SourceCodeLine = 955;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0038\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_7__ == ( 8) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 947;
+                    __context__.SourceCodeLine = 959;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0038\u0034\u0030\u0030\u0030\u0039\u0003") ; 
                     } 
                 
@@ -1918,7 +1934,7 @@ object CHANGE_DIGITAL_CLOSED_CAPTION_OnChange_37 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 954;
+        __context__.SourceCodeLine = 966;
         
             {
             int __SPLS_TMPVAR__SWTCH_8__ = ((int)CHANGE_SOURCE  .UshortValue);
@@ -1926,43 +1942,43 @@ object CHANGE_DIGITAL_CLOSED_CAPTION_OnChange_37 ( Object __EventInfo__ )
                 { 
                 if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 0) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 958;
+                    __context__.SourceCodeLine = 970;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0031\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 1) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 962;
+                    __context__.SourceCodeLine = 974;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0032\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 2) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 966;
+                    __context__.SourceCodeLine = 978;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0033\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 3) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 970;
+                    __context__.SourceCodeLine = 982;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0034\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 4) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 974;
+                    __context__.SourceCodeLine = 986;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0035\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 5) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 978;
+                    __context__.SourceCodeLine = 990;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0030\u0036\u0003") ; 
                     } 
                 
                 else if  ( Functions.TestForTrue  (  ( __SPLS_TMPVAR__SWTCH_8__ == ( 6) ) ) ) 
                     { 
-                    __context__.SourceCodeLine = 982;
+                    __context__.SourceCodeLine = 994;
                     ADDCOMMAND (  __context__ , "\u0030\u0045\u0030\u0041\u0002\u0031\u0030\u0041\u0031\u0030\u0030\u0031\u0037\u0003") ; 
                     } 
                 
@@ -1988,48 +2004,48 @@ object FROMDEVICE_OnChange_38 ( Object __EventInfo__ )
     {
         SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
         
-        __context__.SourceCodeLine = 989;
+        __context__.SourceCodeLine = 1001;
         RESPONSESTRING  .UpdateValue ( RESPONSESTRING + FROMDEVICE  ) ; 
-        __context__.SourceCodeLine = 990;
+        __context__.SourceCodeLine = 1002;
         Functions.ClearBuffer ( FROMDEVICE ) ; 
-        __context__.SourceCodeLine = 992;
+        __context__.SourceCodeLine = 1004;
         if ( Functions.TestForTrue  ( ( RXOK)  ) ) 
             { 
-            __context__.SourceCodeLine = 994;
+            __context__.SourceCodeLine = 1006;
             RXOK = (ushort) ( 0 ) ; 
-            __context__.SourceCodeLine = 995;
+            __context__.SourceCodeLine = 1007;
             while ( Functions.TestForTrue  ( ( Functions.Find( "\u000D" , RESPONSESTRING ))  ) ) 
                 { 
-                __context__.SourceCodeLine = 997;
+                __context__.SourceCodeLine = 1009;
                 RX_MARKER3 = (ushort) ( Functions.Find( "\u000D" , RESPONSESTRING ) ) ; 
-                __context__.SourceCodeLine = 998;
+                __context__.SourceCodeLine = 1010;
                 if ( Functions.TestForTrue  ( ( RX_MARKER3)  ) ) 
                     { 
-                    __context__.SourceCodeLine = 1000;
+                    __context__.SourceCodeLine = 1012;
                     RX_MESSAGE  .UpdateValue ( Functions.Remove ( RX_MARKER3, RESPONSESTRING )  ) ; 
-                    __context__.SourceCodeLine = 1001;
+                    __context__.SourceCodeLine = 1013;
                     CancelWait ( "SENDWAIT" ) ; 
-                    __context__.SourceCodeLine = 1002;
+                    __context__.SourceCodeLine = 1014;
                     PROCESSRESPONSE (  __context__ , RX_MESSAGE) ; 
-                    __context__.SourceCodeLine = 1003;
+                    __context__.SourceCodeLine = 1015;
                     if ( Functions.TestForTrue  ( ( Functions.Length( COMMANDSTRING ))  ) ) 
                         { 
-                        __context__.SourceCodeLine = 1005;
+                        __context__.SourceCodeLine = 1017;
                         SEND (  __context__  ) ; 
                         } 
                     
                     else 
                         { 
-                        __context__.SourceCodeLine = 1009;
+                        __context__.SourceCodeLine = 1021;
                         SENDING = (ushort) ( 0 ) ; 
                         } 
                     
                     } 
                 
-                __context__.SourceCodeLine = 995;
+                __context__.SourceCodeLine = 1007;
                 } 
             
-            __context__.SourceCodeLine = 1013;
+            __context__.SourceCodeLine = 1025;
             RXOK = (ushort) ( 1 ) ; 
             } 
         
@@ -2048,27 +2064,27 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 1026;
+        __context__.SourceCodeLine = 1038;
         RXOK = (ushort) ( 1 ) ; 
-        __context__.SourceCodeLine = 1027;
+        __context__.SourceCodeLine = 1039;
         RX_MESSAGELENGTH = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1028;
+        __context__.SourceCodeLine = 1040;
         RX_MARKER1 = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1029;
+        __context__.SourceCodeLine = 1041;
         RX_MARKER2 = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1030;
+        __context__.SourceCodeLine = 1042;
         SENDING = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1031;
+        __context__.SourceCodeLine = 1043;
         RESPONSESTRING  .UpdateValue ( ""  ) ; 
-        __context__.SourceCodeLine = 1032;
+        __context__.SourceCodeLine = 1044;
         COMMANDSTRING  .UpdateValue ( ""  ) ; 
-        __context__.SourceCodeLine = 1033;
+        __context__.SourceCodeLine = 1045;
         _VOLUME = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1034;
+        __context__.SourceCodeLine = 1046;
         _MUTED = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1035;
+        __context__.SourceCodeLine = 1047;
         _VOLUMEBEFOREMUTED = (ushort) ( 0 ) ; 
-        __context__.SourceCodeLine = 1036;
+        __context__.SourceCodeLine = 1048;
         CURRENTTVCHANNEL = (ushort) ( 0 ) ; 
         
         

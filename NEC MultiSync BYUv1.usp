@@ -256,6 +256,10 @@ Function OutputSourceResult(Integer i)
 		{
            	Selected_Input_Analog = 14;
 		}
+		DEFAULT:
+		{
+          	Trace("Error Unrecognized input value");
+		}
 	}	
 }
 
@@ -343,6 +347,7 @@ Function ProcessResponse(String cmd)
 	    
  //   MakeString(Message,"CMD: %s",cmd);
 	RX_MessageType = Byte(cmd,5);
+//	Trace("RX_MessageType= %X",RX_MessageType);
 //	MakeString(Message,"RX Found Message Type: %u,",RX_MessageType);
 	RX_MessageLength = 16*hextoi(mid(cmd,6,1)) + hextoi(mid(cmd, 7,1));
 	MakeString(Message,"RX Found Message Length: %u",RX_MessageLength);
@@ -551,6 +556,10 @@ Function ProcessResponse(String cmd)
                	Trace("Error received while Setting value");
 			}			   	
 		}
+      	DEFAULT:
+		{
+            Trace("Error Unrecognized command response");
+		}
 	}
 }
 
@@ -568,6 +577,8 @@ PUSH Poll_Main_Info
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x38\x34\x03"); //Get Analog Closed Caption Value
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x41\x31\x03"); //Get Digital Closed Caption Value
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x46\x42\x03"); //Get Control button lock value
+	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
+
 }
 
 PUSH Poll_Main_Info_No_Volume
@@ -578,6 +589,7 @@ PUSH Poll_Main_Info_No_Volume
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x38\x34\x03"); //Get Analog Closed Caption Value
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x41\x31\x03"); //Get Digital Closed Caption Value
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x46\x42\x03"); //Get Control button lock value
+	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
 
 PUSH Turn_Power_On
