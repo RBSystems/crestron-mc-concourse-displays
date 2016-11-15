@@ -59,7 +59,7 @@ ANALOG_INPUT Change_Digital_Closed_Caption;
 BUFFER_INPUT FromDevice[500];
 
 DIGITAL_OUTPUT Power_Is_On, Power_Is_Off, Mute_Is_On,Mute_Is_Off, Control_Button_is_Locked, Control_Button_is_UnLocked;
-ANALOG_OUTPUT Volume_Analog,Selected_Input_Analog,Analog_Closed_Caption_Analog,Digital_Closed_Caption_Analog; 
+ANALOG_OUTPUT Volume_Analog,Selected_Input_Analog,Analog_Closed_Caption_Analog,Digital_Closed_Caption_Analog,MajorCH,MinorCH; 
 STRING_OUTPUT Selected_Channel_Text;
 STRING_OUTPUT ToDevice,Message;
 
@@ -119,7 +119,7 @@ MyStruct1 struct;
          For example, in Function Main: myString = "";
 *******************************************************************************************/
 INTEGER RxOK,Sending;
-INTEGER RX_MessageLength,RX_MessageType,RX_Marker1,RX_Marker2,RX_Marker3,CurrentTVChannel;
+INTEGER RX_MessageLength,RX_MessageType,RX_Marker1,RX_Marker2,RX_Marker3,CurrentTVChannel,TVChMajor,TVChMinor;
 INTEGER _Volume,_Muted,_VolumeBeforeMuted;
 // LONG_INTEGER
 // SIGNED_INTEGER
@@ -344,6 +344,7 @@ Function OutputDigitalCaptionResult(Integer i)
 Function ProcessResponse(String cmd)
 {
 	Integer Result;
+	String TVCh$[20];
 	    
  //   MakeString(Message,"CMD: %s",cmd);
 	RX_MessageType = Byte(cmd,5);
@@ -390,6 +391,18 @@ Function ProcessResponse(String cmd)
 					}
 				}   	
 			}
+			else if(mid(cmd,9,4) = "C32C")// Tuner Channel Response
+			{
+				TVChMajor = hextoi(mid(cmd,17,4));
+                TVChMinor = hextoi(mid(cmd,21,4));
+				Makestring(TVCh$, "%d.%d", TVChMajor, TVChMinor);
+				Selected_Channel_Text = TVCh$;
+			}	
+			else if(mid(cmd,9,4) = "C22C")// Tuner Channel Response None
+			{
+				Makestring(TVCh$, "");
+				Selected_Channel_Text = TVCh$;
+			}	
 			else
 			{
                	Trace("Error received while executing command");
@@ -481,7 +494,7 @@ Function ProcessResponse(String cmd)
 			}
 			else
 			{
-               	Trace("Error received while retrieving value");
+               	Trace("Error received while retrieving value:\n%s", cmd);
 			}  	
 		}
 		case(0x46): // Set Parameter reply
@@ -574,8 +587,11 @@ PUSH Poll_Main_Info
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x38\x44\x03");	//Get Mute value
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x36\x32\x03");	//Get Volume value				
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x36\x30\x03");	//Get Source value
-	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x38\x34\x03"); //Get Analog Closed Caption Value
+/*
+Not Supported on V463-AVT
+	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x38\x34\x03"); //Get Analog Closed Caption Value 
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x41\x31\x03"); //Get Digital Closed Caption Value
+*/
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x46\x42\x03"); //Get Control button lock value
 	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 
@@ -586,8 +602,11 @@ PUSH Poll_Main_Info_No_Volume
 	AddCommand("\x30\x41\x30\x36\x02\x30\x31\x44\x36\x03");	//Power Status read
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x38\x44\x03");	//Get Mute value				
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x36\x30\x03");	//Get Source value
+/*
+Not Supported on V463-AVT
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x38\x34\x03"); //Get Analog Closed Caption Value
 	AddCommand("\x30\x43\x30\x36\x02\x31\x30\x41\x31\x03"); //Get Digital Closed Caption Value
+*/
 	AddCommand("\x30\x43\x30\x36\x02\x30\x30\x46\x42\x03"); //Get Control button lock value
 	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
