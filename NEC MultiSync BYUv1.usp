@@ -397,6 +397,8 @@ Function ProcessResponse(String cmd)
                 TVChMinor = hextoi(mid(cmd,21,4));
 				Makestring(TVCh$, "%d.%d", TVChMajor, TVChMinor);
 				Selected_Channel_Text = TVCh$;
+				MajorCh = TVChMajor;
+				MinorCh	= TVChMinor;
 			}	
 			else if(mid(cmd,9,4) = "C22C")// Tuner Channel Response None
 			{

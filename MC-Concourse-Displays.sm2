@@ -2341,9 +2341,9 @@ Xm=-1
 Ym=-1
 SH=41
 Z=100
-P=616
+P=904
 Ht=1
-Hi=55
+Hi=45
 ]
 [
 ObjTp=Bw
@@ -3505,11 +3505,13 @@ Nm=DisplayS1Digit_0
 ObjTp=Sg
 H=47
 Nm=DisplayS1CH+
+SgTf=Yes
 ]
 [
 ObjTp=Sg
 H=48
 Nm=DisplayS1CH-
+SgTf=Yes
 ]
 [
 ObjTp=Sg

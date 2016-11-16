@@ -14,258 +14,257 @@ Linker script and memory map
                 0x00000000                PROVIDE (software_init_hook, 0x0)
                 0x00000000                PROVIDE (_software_init_hook, 0x0)
 
-.text           0x80000000     0xe940
+.text           0x80000000     0xe9e0
  *(.text)
- .text          0x80000000     0x7a2a S2_NEC_MultiSync_BYUv1.o
-                0x800055cc                S2_NEC_MultiSync_BYUv1EventHandler00025
-                0x80006d32                S2_NEC_MultiSync_BYUv1EventHandler0000D
-                0x8000630e                S2_NEC_MultiSync_BYUv1_main
-                0x80002e42                S2_NEC_MultiSync_BYUv1EventHandler00001
-                0x800073e0                S2_NEC_MultiSync_BYUv1EventHandler00018
-                0x80002ad8                S2_NEC_MultiSync_BYUv1EventHandler00000
-                0x8000755c                S2_NEC_MultiSync_BYUv1EventHandler0001A
-                0x80005a02                S2_NEC_MultiSync_BYUv1EventHandler00026
-                0x80006a3a                S2_NEC_MultiSync_BYUv1EventHandler00008
-                0x80006728                S2_NEC_MultiSync_BYUv1EventHandler00003
-                0x800061b0                S2_NEC_MultiSync_BYUv1_EventHandler
-                0x80003414                S2_NEC_MultiSync_BYUv1EventHandler00009
-                0x800071a6                S2_NEC_MultiSync_BYUv1EventHandler00015
-                0x8000385c                S2_NEC_MultiSync_BYUv1EventHandler0000F
-                0x80007854                S2_NEC_MultiSync_BYUv1EventHandler0001E
-                0x80004d92                S2_NEC_MultiSync_BYUv1EventHandler00022
-                0x800070e8                S2_NEC_MultiSync_BYUv1EventHandler00014
-                0x80003120                S2_NEC_MultiSync_BYUv1EventHandler00005
-                0x80003b7e                S2_NEC_MultiSync_BYUv1EventHandler00020
-                0x8000761a                S2_NEC_MultiSync_BYUv1EventHandler0001B
-                0x800068be                S2_NEC_MultiSync_BYUv1EventHandler00006
-                0x80006f6c                S2_NEC_MultiSync_BYUv1EventHandler00012
-                0x80007264                S2_NEC_MultiSync_BYUv1EventHandler00016
+ .text          0x80000000     0x7ad4 S2_NEC_MultiSync_BYUv1.o
+                0x80005676                S2_NEC_MultiSync_BYUv1EventHandler00025
+                0x80006ddc                S2_NEC_MultiSync_BYUv1EventHandler0000D
+                0x800063b8                S2_NEC_MultiSync_BYUv1_main
+                0x80002eec                S2_NEC_MultiSync_BYUv1EventHandler00001
+                0x8000748a                S2_NEC_MultiSync_BYUv1EventHandler00018
+                0x80002b82                S2_NEC_MultiSync_BYUv1EventHandler00000
+                0x80007606                S2_NEC_MultiSync_BYUv1EventHandler0001A
+                0x80005aac                S2_NEC_MultiSync_BYUv1EventHandler00026
+                0x80006ae4                S2_NEC_MultiSync_BYUv1EventHandler00008
+                0x800067d2                S2_NEC_MultiSync_BYUv1EventHandler00003
+                0x8000625a                S2_NEC_MultiSync_BYUv1_EventHandler
+                0x800034be                S2_NEC_MultiSync_BYUv1EventHandler00009
+                0x80007250                S2_NEC_MultiSync_BYUv1EventHandler00015
+                0x80003906                S2_NEC_MultiSync_BYUv1EventHandler0000F
+                0x800078fe                S2_NEC_MultiSync_BYUv1EventHandler0001E
+                0x80004e3c                S2_NEC_MultiSync_BYUv1EventHandler00022
+                0x80007192                S2_NEC_MultiSync_BYUv1EventHandler00014
+                0x800031ca                S2_NEC_MultiSync_BYUv1EventHandler00005
+                0x80003c28                S2_NEC_MultiSync_BYUv1EventHandler00020
+                0x800076c4                S2_NEC_MultiSync_BYUv1EventHandler0001B
+                0x80006968                S2_NEC_MultiSync_BYUv1EventHandler00006
+                0x80007016                S2_NEC_MultiSync_BYUv1EventHandler00012
+                0x8000730e                S2_NEC_MultiSync_BYUv1EventHandler00016
                 0x800002ac                S2_NEC_MultiSync_BYUv1SENDWAIT
-                0x80006c74                S2_NEC_MultiSync_BYUv1EventHandler0000C
-                0x80006af8                S2_NEC_MultiSync_BYUv1EventHandler0000A
-                0x80007322                S2_NEC_MultiSync_BYUv1EventHandler00017
-                0x8000666a                S2_NEC_MultiSync_BYUv1EventHandler00002
-                0x8000697c                S2_NEC_MultiSync_BYUv1EventHandler00007
-                0x80003570                S2_NEC_MultiSync_BYUv1EventHandler0000E
-                0x80006df0                S2_NEC_MultiSync_BYUv1EventHandler00010
-                0x800076d8                S2_NEC_MultiSync_BYUv1EventHandler0001C
-                0x80006bb6                S2_NEC_MultiSync_BYUv1EventHandler0000B
-                0x80007912                S2_NEC_MultiSync_BYUv1EventHandler0001F
-                0x8000749e                S2_NEC_MultiSync_BYUv1EventHandler00019
-                0x80007796                S2_NEC_MultiSync_BYUv1EventHandler0001D
-                0x80005068                S2_NEC_MultiSync_BYUv1EventHandler00024
-                0x800043f0                S2_NEC_MultiSync_BYUv1EventHandler00021
-                0x800079d0                S2_NEC_MultiSync_BYUv1EventHandler00023
-                0x8000702a                S2_NEC_MultiSync_BYUv1EventHandler00013
-                0x80006eae                S2_NEC_MultiSync_BYUv1EventHandler00011
-                0x800067e6                S2_NEC_MultiSync_BYUv1EventHandler00004
- *fill*         0x80007a2a        0x2
- .text          0x80007a2c     0x5836 library.o
-                0x8000bc18                RotateRightLong
-                0x8000c226                IsSystem
-                0x8000bb7c                Seed
-                0x80009474                Remove
-                0x8000b7f8                Ltoa
-                0x8000b524                Atoi
-                0x8000a88c                InitRampInfoArray
-                0x8000bfd2                Right
-                0x8000d002                LockInputSema
-                0x8000baa6                Mod
-                0x8000bc8e                Getc
-                0x8000b9da                SMuldiv
-                0x8000c208                IsHidden
-                0x8000b8be                Min
-                0x8000ce16                hextosi
-                0x8000c3ac                WriteIntegerArray
-                0x8000c922                GetSignedIntArrayElementPtr
-                0x8000b246                CheckStructArray
-                0x8000ce2a                hextosl
-                0x8000c532                WriteSignedIntegerArray
-                0x8000af0e                InitStringParamArray
-                0x8000a1e0                ReadSignedLongIntegerArray
-                0x80009102                GatherToDelimiter
-                0x8000ad32                InitStringArray
-                0x8000b898                Max
-                0x8000c262                IsReadOnly
-                0x8000b9a2                SMax
-                0x800092a6                GatherByLength
-                0x8000b732                Chr
-                0x8000c384                ReadSignedLongInteger
-                0x8000b7b0                Itohex
-                0x8000b1b8                GetStructArrayElement
-                0x8000b4ac                UNS_SetByte
-                0x8000bfa6                ReverseFindi
-                0x8000a688                ReadStringArray
-                0x8000c732                GetIntArrayElementPtr
-                0x8000bde2                Lower
-                0x8000bb98                RotateLeft
-                0x8000cf4a                ResizeIfAutogrow
-                0x8000a9b8                CheckInputArray
-                0x80007f9a                ResizeStringArray
-                0x8000b6c4                Atosl
-                0x8000b4ec                High
-                0x8000bb48                Rnd
-                0x8000ba6a                UMod
-                0x8000bbee                RotateLeftLong
-                0x8000d076                FindNumericChar
-                0x8000cb7a                CheckIOArrayBounds2
-                0x8000c1c0                MakeProgramFilename
-                0x8000b9be                SMin
-                0x8000bd16                Left
-                0x8000bc58                CheckBufferThreshold
-                0x8000c33c                ReadSignedInteger
-                0x8000b516                LowWord
-                0x80007a2c                Bit
-                0x8000c2ec                ReadLongInteger
-                0x8000b32a                Byte
-                0x8000c82a                GetLongArrayElementPtr
-                0x8000bf78                ReverseFind
-                0x8000c1d6                GetSeries
-                0x8000d142                InitTcpServer
-                0x8000bdca                Len
-                0x8000cc4a                InitializeRampInfoInternal
-                0x8000b8e4                Divide
-                0x8000b630                Atol
-                0x8000c1cc                GetModelNumber
-                0x8000cb12                CheckIOArrayBounds
-                0x8000aa12                CheckStringInputArray
-                0x8000c5f4                WriteSignedLongIntegerArray
-                0x8000b102                GetStringArrayElement
-                0x8000b83c                Ltohex
-                0x8000b768                Itoa
-                0x8000bbc2                RotateRight
-                0x80009762                InternalReverseFind
-                0x8000c2cc                WriteLongInteger
-                0x8000ac36                InitDynamicStringStruct
-                0x8000ab28                SetStringArray
-                0x80009fbe                ReadSignedIntegerArray
-                0x8000aa6c                SetOutputArray
-                0x8000c27c                WriteInteger
-                0x8000b096                InitStructDynamicArray
-                0x800099ec                SetString
-                0x8000bae2                Random
-                0x8000c314                WriteSignedInteger
-                0x80007c90                Find
-                0x8000c1e0                GetProgramNumber
-                0x8000beb6                Mid
-                0x8000d0b4                InitTcpClient
-                0x80008b7e                ResizeStructArray
-                0x8000ca1a                GetSignedLongArrayElementPtr
-                0x8000ce3c                hextol
-                0x8000a402                ReadString
-                0x8000adc8                InitDynamicStringArray
-                0x8000cf22                UpperChar
-                0x8000b5c0                Atosi
-                0x8000c2a4                ReadInteger
-                0x8000b956                Muldiv
-                0x8000aada                SetStringOutputArray
-                0x8000c6b8                WriteString
-                0x800085f2                ResizeIntegerArray
-                0x8000a980                InitInOutArray
-                0x8000afd6                InitNvramStringArray
-                0x8000b880                Abs
-                0x8000ba26                SDivide
-                0x80009b7c                ReadIntegerArray
-                0x80007b3c                CompareStrings
-                0x8000cefa                LowerChar
-                0x8000d1d2                InitUdpSocket
-                0x8000bc40                ClearBuffer
-                0x8000c08e                Upper
-                0x8000b072                InitStructArray
-                0x8000c164                MakeLower
-                0x8000c244                IsVolume
-                0x800095ce                RemoveByLength
-                0x8000b2c2                CheckStringOutputArrayIndex
-                0x8000c46e                WriteLongIntegerArray
-                0x8000ccf6                InitRampInfoStructArray
-                0x8000b508                HighWord
-                0x80007e04                ResizeString
-                0x8000c1ea                IsDirectory
-                0x80009d9c                ReadLongIntegerArray
-                0x8000b4fa                Low
-                0x80008fa8                Gather
-                0x8000c192                MakeUpper
-                0x8000abf8                InitStringStruct
-                0x8000cbe2                CheckStringArrayBounds
-                0x8000b928                CheckDenominator
-                0x8000cdfe                hextoi
-                0x8000a520                WriteStringArray
-                0x8000b3ea                SetByte
-                0x8000cca0                InitializeRampInfo
-                0x8000d03c                UnLockInputSema
-                0x8000c364                WriteSignedLongInteger
-                0x8000acea                InitNvramStringStruct
- *fill*         0x8000d262        0xe
-                0x8000d270                .=ALIGN(0x10)
+                0x80006d1e                S2_NEC_MultiSync_BYUv1EventHandler0000C
+                0x80006ba2                S2_NEC_MultiSync_BYUv1EventHandler0000A
+                0x800073cc                S2_NEC_MultiSync_BYUv1EventHandler00017
+                0x80006714                S2_NEC_MultiSync_BYUv1EventHandler00002
+                0x80006a26                S2_NEC_MultiSync_BYUv1EventHandler00007
+                0x8000361a                S2_NEC_MultiSync_BYUv1EventHandler0000E
+                0x80006e9a                S2_NEC_MultiSync_BYUv1EventHandler00010
+                0x80007782                S2_NEC_MultiSync_BYUv1EventHandler0001C
+                0x80006c60                S2_NEC_MultiSync_BYUv1EventHandler0000B
+                0x800079bc                S2_NEC_MultiSync_BYUv1EventHandler0001F
+                0x80007548                S2_NEC_MultiSync_BYUv1EventHandler00019
+                0x80007840                S2_NEC_MultiSync_BYUv1EventHandler0001D
+                0x80005112                S2_NEC_MultiSync_BYUv1EventHandler00024
+                0x8000449a                S2_NEC_MultiSync_BYUv1EventHandler00021
+                0x80007a7a                S2_NEC_MultiSync_BYUv1EventHandler00023
+                0x800070d4                S2_NEC_MultiSync_BYUv1EventHandler00013
+                0x80006f58                S2_NEC_MultiSync_BYUv1EventHandler00011
+                0x80006890                S2_NEC_MultiSync_BYUv1EventHandler00004
+ .text          0x80007ad4     0x5836 library.o
+                0x8000bcc0                RotateRightLong
+                0x8000c2ce                IsSystem
+                0x8000bc24                Seed
+                0x8000951c                Remove
+                0x8000b8a0                Ltoa
+                0x8000b5cc                Atoi
+                0x8000a934                InitRampInfoArray
+                0x8000c07a                Right
+                0x8000d0aa                LockInputSema
+                0x8000bb4e                Mod
+                0x8000bd36                Getc
+                0x8000ba82                SMuldiv
+                0x8000c2b0                IsHidden
+                0x8000b966                Min
+                0x8000cebe                hextosi
+                0x8000c454                WriteIntegerArray
+                0x8000c9ca                GetSignedIntArrayElementPtr
+                0x8000b2ee                CheckStructArray
+                0x8000ced2                hextosl
+                0x8000c5da                WriteSignedIntegerArray
+                0x8000afb6                InitStringParamArray
+                0x8000a288                ReadSignedLongIntegerArray
+                0x800091aa                GatherToDelimiter
+                0x8000adda                InitStringArray
+                0x8000b940                Max
+                0x8000c30a                IsReadOnly
+                0x8000ba4a                SMax
+                0x8000934e                GatherByLength
+                0x8000b7da                Chr
+                0x8000c42c                ReadSignedLongInteger
+                0x8000b858                Itohex
+                0x8000b260                GetStructArrayElement
+                0x8000b554                UNS_SetByte
+                0x8000c04e                ReverseFindi
+                0x8000a730                ReadStringArray
+                0x8000c7da                GetIntArrayElementPtr
+                0x8000be8a                Lower
+                0x8000bc40                RotateLeft
+                0x8000cff2                ResizeIfAutogrow
+                0x8000aa60                CheckInputArray
+                0x80008042                ResizeStringArray
+                0x8000b76c                Atosl
+                0x8000b594                High
+                0x8000bbf0                Rnd
+                0x8000bb12                UMod
+                0x8000bc96                RotateLeftLong
+                0x8000d11e                FindNumericChar
+                0x8000cc22                CheckIOArrayBounds2
+                0x8000c268                MakeProgramFilename
+                0x8000ba66                SMin
+                0x8000bdbe                Left
+                0x8000bd00                CheckBufferThreshold
+                0x8000c3e4                ReadSignedInteger
+                0x8000b5be                LowWord
+                0x80007ad4                Bit
+                0x8000c394                ReadLongInteger
+                0x8000b3d2                Byte
+                0x8000c8d2                GetLongArrayElementPtr
+                0x8000c020                ReverseFind
+                0x8000c27e                GetSeries
+                0x8000d1ea                InitTcpServer
+                0x8000be72                Len
+                0x8000ccf2                InitializeRampInfoInternal
+                0x8000b98c                Divide
+                0x8000b6d8                Atol
+                0x8000c274                GetModelNumber
+                0x8000cbba                CheckIOArrayBounds
+                0x8000aaba                CheckStringInputArray
+                0x8000c69c                WriteSignedLongIntegerArray
+                0x8000b1aa                GetStringArrayElement
+                0x8000b8e4                Ltohex
+                0x8000b810                Itoa
+                0x8000bc6a                RotateRight
+                0x8000980a                InternalReverseFind
+                0x8000c374                WriteLongInteger
+                0x8000acde                InitDynamicStringStruct
+                0x8000abd0                SetStringArray
+                0x8000a066                ReadSignedIntegerArray
+                0x8000ab14                SetOutputArray
+                0x8000c324                WriteInteger
+                0x8000b13e                InitStructDynamicArray
+                0x80009a94                SetString
+                0x8000bb8a                Random
+                0x8000c3bc                WriteSignedInteger
+                0x80007d38                Find
+                0x8000c288                GetProgramNumber
+                0x8000bf5e                Mid
+                0x8000d15c                InitTcpClient
+                0x80008c26                ResizeStructArray
+                0x8000cac2                GetSignedLongArrayElementPtr
+                0x8000cee4                hextol
+                0x8000a4aa                ReadString
+                0x8000ae70                InitDynamicStringArray
+                0x8000cfca                UpperChar
+                0x8000b668                Atosi
+                0x8000c34c                ReadInteger
+                0x8000b9fe                Muldiv
+                0x8000ab82                SetStringOutputArray
+                0x8000c760                WriteString
+                0x8000869a                ResizeIntegerArray
+                0x8000aa28                InitInOutArray
+                0x8000b07e                InitNvramStringArray
+                0x8000b928                Abs
+                0x8000bace                SDivide
+                0x80009c24                ReadIntegerArray
+                0x80007be4                CompareStrings
+                0x8000cfa2                LowerChar
+                0x8000d27a                InitUdpSocket
+                0x8000bce8                ClearBuffer
+                0x8000c136                Upper
+                0x8000b11a                InitStructArray
+                0x8000c20c                MakeLower
+                0x8000c2ec                IsVolume
+                0x80009676                RemoveByLength
+                0x8000b36a                CheckStringOutputArrayIndex
+                0x8000c516                WriteLongIntegerArray
+                0x8000cd9e                InitRampInfoStructArray
+                0x8000b5b0                HighWord
+                0x80007eac                ResizeString
+                0x8000c292                IsDirectory
+                0x80009e44                ReadLongIntegerArray
+                0x8000b5a2                Low
+                0x80009050                Gather
+                0x8000c23a                MakeUpper
+                0x8000aca0                InitStringStruct
+                0x8000cc8a                CheckStringArrayBounds
+                0x8000b9d0                CheckDenominator
+                0x8000cea6                hextoi
+                0x8000a5c8                WriteStringArray
+                0x8000b492                SetByte
+                0x8000cd48                InitializeRampInfo
+                0x8000d0e4                UnLockInputSema
+                0x8000c40c                WriteSignedLongInteger
+                0x8000ad92                InitNvramStringStruct
+ *fill*         0x8000d30a        0x6
+                0x8000d310                .=ALIGN(0x10)
  *(.eh_frame)
-                0x8000d270                .=ALIGN(0x10)
+                0x8000d310                .=ALIGN(0x10)
  *(.gnu.linkonce.t.*)
-                0x8000d270                .=ALIGN(0x4)
-                0x8000d270                __CTOR_LIST__=.
-                0x8000d270                ___CTOR_LIST__=.
-                0x8000d270        0x4 LONG 0x0 (((__CTOR_END__-__CTOR_LIST__)/0x4)-0x2)
+                0x8000d310                .=ALIGN(0x4)
+                0x8000d310                __CTOR_LIST__=.
+                0x8000d310                ___CTOR_LIST__=.
+                0x8000d310        0x4 LONG 0x0 (((__CTOR_END__-__CTOR_LIST__)/0x4)-0x2)
  *(.ctors)
-                0x8000d274        0x4 LONG 0x0
-                0x8000d278                __CTOR_END__=.
-                0x8000d278                __DTOR_LIST__=.
-                0x8000d278                ___DTOR_LIST__=.
-                0x8000d278        0x4 LONG 0x0 (((__DTOR_END__-__DTOR_LIST__)/0x4)-0x2)
+                0x8000d314        0x4 LONG 0x0
+                0x8000d318                __CTOR_END__=.
+                0x8000d318                __DTOR_LIST__=.
+                0x8000d318                ___DTOR_LIST__=.
+                0x8000d318        0x4 LONG 0x0 (((__DTOR_END__-__DTOR_LIST__)/0x4)-0x2)
  *(.dtors)
-                0x8000d27c        0x4 LONG 0x0
-                0x8000d280                __DTOR_END__=.
+                0x8000d31c        0x4 LONG 0x0
+                0x8000d320                __DTOR_END__=.
  *(.rodata)
- .rodata        0x8000d280      0xa5c S2_NEC_MultiSync_BYUv1.o
- .rodata        0x8000dcdc      0xc54 library.o
+ .rodata        0x8000d320      0xa5c S2_NEC_MultiSync_BYUv1.o
+ .rodata        0x8000dd7c      0xc54 library.o
  *(.gcc_except_table)
-                0x8000e930                .=ALIGN(0x2)
-                0x8000e930                __INIT_SECTION__=.
-                0x8000e930        0x4 LONG 0x4e560000
+                0x8000e9d0                .=ALIGN(0x2)
+                0x8000e9d0                __INIT_SECTION__=.
+                0x8000e9d0        0x4 LONG 0x4e560000
  *(.init)
-                0x8000e934        0x2 SHORT 0x4e5e
-                0x8000e936        0x2 SHORT 0x4e75
-                0x8000e938                __FINI_SECTION__=.
-                0x8000e938        0x4 LONG 0x4e560000
+                0x8000e9d4        0x2 SHORT 0x4e5e
+                0x8000e9d6        0x2 SHORT 0x4e75
+                0x8000e9d8                __FINI_SECTION__=.
+                0x8000e9d8        0x4 LONG 0x4e560000
  *(.fini)
-                0x8000e93c        0x2 SHORT 0x4e5e
-                0x8000e93e        0x2 SHORT 0x4e75
+                0x8000e9dc        0x2 SHORT 0x4e5e
+                0x8000e9de        0x2 SHORT 0x4e75
  *(.lit)
-                0x8000e940                .=ALIGN(0x10)
-                0x8000e940                _etext=.
-                0x8000e940                etext=.
+                0x8000e9e0                .=ALIGN(0x10)
+                0x8000e9e0                _etext=.
+                0x8000e9e0                etext=.
 
-.data           0x8000e940        0x0
-                0x8000e940                copy_start=.
+.data           0x8000e9e0        0x0
+                0x8000e9e0                copy_start=.
  *(.shdata)
  *(.data)
  *(.gnu.linkonce.d.*)
-                0x8000e940                .=ALIGN(0x10)
-                0x8000e940                _edata=.
-                0x8000e940                copy_end=.
+                0x8000e9e0                .=ALIGN(0x10)
+                0x8000e9e0                _edata=.
+                0x8000e9e0                copy_end=.
 
 .got
  *(.got.plt)
  *(.got)
 
-EntryList       0x8000e940      0x110
+EntryList       0x8000e9e0      0x110
  *(EntryList)
- EntryList      0x8000e940      0x110 S2_NEC_MultiSync_BYUv1.o
-                0x8000e940                S2_NEC_MultiSync_BYUv1_Entry
-                0x8000ea50                .=ALIGN(0x4)
+ EntryList      0x8000e9e0      0x110 S2_NEC_MultiSync_BYUv1.o
+                0x8000e9e0                S2_NEC_MultiSync_BYUv1_Entry
+                0x8000eaf0                .=ALIGN(0x4)
 
-FunctionList    0x8000ea50        0x4
+FunctionList    0x8000eaf0        0x4
  *(FunctionList)
- FunctionList   0x8000ea50        0x4 globals.o
-                0x8000ea50                g_pFunctions
-                0x8000ea54                .=ALIGN(0x4)
+ FunctionList   0x8000eaf0        0x4 globals.o
+                0x8000eaf0                g_pFunctions
+                0x8000eaf4                .=ALIGN(0x4)
 
-.bss            0x8000ea54        0x0
-                0x8000ea54                .=ALIGN(0x4)
-                0x8000ea54                __bss_start=.
+.bss            0x8000eaf4        0x0
+                0x8000eaf4                .=ALIGN(0x4)
+                0x8000eaf4                __bss_start=.
  *(.shbss)
  *(.bss)
  *(COMMON)
-                0x8000ea58                _end=ALIGN(0x8)
-                0x8000ea58                __end=_end
+                0x8000eaf8                _end=ALIGN(0x8)
+                0x8000eaf8                __end=_end
 
 .stab
  *(.stab)
@@ -328,7 +327,7 @@ LOAD globals.o
 LOAD library.o
 OUTPUT(S2_NEC_MultiSync_BYUv1.elf elf32-m68k)
 
-.comment        0x8000ea54       0x72
- .comment       0x8000ea54       0x26 S2_NEC_MultiSync_BYUv1.o
- .comment       0x8000ea7a       0x26 globals.o
- .comment       0x8000eaa0       0x26 library.o
+.comment        0x8000eaf4       0x72
+ .comment       0x8000eaf4       0x26 S2_NEC_MultiSync_BYUv1.o
+ .comment       0x8000eb1a       0x26 globals.o
+ .comment       0x8000eb40       0x26 library.o
