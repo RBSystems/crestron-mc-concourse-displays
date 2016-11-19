@@ -140,7 +140,7 @@ Function Send()
 	CommandToBeSent = left(CommandToBeSent,len(CommandToBeSent)-3);
 
 	ToDevice = CommandToBeSent;
-	wait(500,SendWait)
+	wait(10000,SendWait)
 	{
     	Trace("IO Timeout");
 		sending = 0;
@@ -655,6 +655,7 @@ PUSH Set_TV_Channel
 PUSH TV_Channel_Up
 {
 	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x38\x42\x30\x30\x30\x31\x03");
+	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
 
 PUSH TV_Channel_Down
@@ -662,6 +663,7 @@ PUSH TV_Channel_Down
 	String temp[50],Result[5];
 
 	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x38\x42\x30\x30\x30\x32\x03");
+	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
 
 PUSH Lock_Control_Button
