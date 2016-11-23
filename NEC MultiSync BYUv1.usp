@@ -52,9 +52,10 @@ DIGITAL_INPUT Poll_Main_Info,Poll_Main_Info_No_Volume,Turn_Power_On, Turn_Power_
 DIGITAL_INPUT TV_Channel_Up, TV_Channel_Down, Lock_Control_Button, Unlock_Control_Button;
 DIGITAL_INPUT Toggle_Power,Toggle_Mute,Vol_Up,Vol_Down,Guide,Numeric_Format,Numberic_Ent;
 DIGITAL_INPUT Display, Menu,Exit,AutoSetup,Up,Down,Left_D,Right_D,SetButton,Picture_Mode,Aspect,Sound;
+DIGITAL_INPUT SendNewCH;
 DIGITAL_INPUT Numbers[10];
 ANALOG_INPUT Change_Source, Change_Volume_Level,Change_TV_Channel,Change_Analog_Closed_Caption;
-ANALOG_INPUT Change_Digital_Closed_Caption; 
+ANALOG_INPUT Change_Digital_Closed_Caption, NewMajorCH, NewMinorCH;
 // STRING_INPUT 
 BUFFER_INPUT FromDevice[500];
 
@@ -136,18 +137,28 @@ STRING RX_Header[7],RX_Message[50],RX_Trash[100];
 
 Function Send()
 {
-	CommandToBeSent = Remove("\x0D\x0A\x0A",CommandString);
-	CommandToBeSent = left(CommandToBeSent,len(CommandToBeSent)-3);
+    CommandToBeSent = Remove("\x0D\x0A\x0A",CommandString);
+    CommandToBeSent = left(CommandToBeSent,len(CommandToBeSent)-3);
 
-	ToDevice = CommandToBeSent;
-	wait(10000,SendWait)
-	{
-    	Trace("IO Timeout");
-		sending = 0;
-		CommandString = "";
-	}
+    ToDevice = CommandToBeSent;
+
+    wait(1000,SendWait1)
+    {
+        Trace("SendWait1");
+	    ToDevice = CommandToBeSent;
+    }
+    wait(2000,SendWait2)
+    {
+        Trace("SendWait2");
+	    ToDevice = CommandToBeSent;
+    }
+    wait(3000,SendWait3)
+    {
+        Trace("IO Timeout");
+        sending = 0;
+        CommandString = "";
+    }
 }
-
 
 /*
 Integer_Function MyIntFunction1()
@@ -655,15 +666,15 @@ PUSH Set_TV_Channel
 PUSH TV_Channel_Up
 {
 	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x38\x42\x30\x30\x30\x31\x03");
-	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
+	wait(100)
+		AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
 
 PUSH TV_Channel_Down
 {
-	String temp[50],Result[5];
-
 	AddCommand("\x30\x45\x30\x41\x02\x30\x30\x38\x42\x30\x30\x30\x32\x03");
-	AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
+	wait(100)
+		AddCommand("\x30\x41\x30\x36\x02\x43\x32\x32\x43\x03"); //Get tuner Channel
 }
 
 PUSH Lock_Control_Button
@@ -856,6 +867,14 @@ PUSH Numbers
 	AddCommand(temp);	
 }
 
+Push SendNewCH
+{
+	string Temp[50];
+	makestring(temp,"0A12\x02C22D%08X%04X\x03", NewMajorCH, NewMinorCH);
+	Trace("Channel CMD: %s",temp);
+	AddCommand(temp);
+}
+
 CHANGE Change_Source
 {
 	String temp[50],Result[5];
@@ -1023,7 +1042,6 @@ CHANGE FromDevice
 {
     ResponseString = ResponseString + FromDevice;
 	clearbuffer(FromDevice);
-
 	if(RxOK)
 	{
 		RxOK = 0;     
@@ -1033,7 +1051,9 @@ CHANGE FromDevice
 			if(RX_Marker3)// && (RX_Marker1 < RX_Marker2))
 			{
 				RX_Message = RemoveByLength(RX_Marker3,ResponseString);
-				cancelwait(SendWait);
+				cancelwait(SendWait1);
+				cancelwait(SendWait2);
+				cancelwait(SendWait3);
 				ProcessResponse(RX_Message);
 				if(len(CommandString))
 				{
