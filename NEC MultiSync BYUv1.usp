@@ -513,7 +513,9 @@ Function ProcessResponse(String cmd)
 						{
                     		pulse(10,Control_Button_is_UnLocked);
 						}
-					}  	
+					}
+					else 
+						Trace("Error Unrecognized command response:\n%s", cmd);
 				}
 				else
 				{
@@ -1092,6 +1094,7 @@ CHANGE FromDevice
 
 Function Main()
 {
+    WaitForInitializationComplete();
 	RxOK = 1;
 	RX_MessageLength = 0;
 	RX_Marker1 = 0;
