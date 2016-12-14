@@ -53,9 +53,10 @@ DIGITAL_INPUT TV_Channel_Up, TV_Channel_Down, Lock_Control_Button, Unlock_Contro
 DIGITAL_INPUT Toggle_Power,Toggle_Mute,Vol_Up,Vol_Down,Guide,Numeric_Format,Numberic_Ent;
 DIGITAL_INPUT Display, Menu,Exit,AutoSetup,Up,Down,Left_D,Right_D,SetButton,Picture_Mode,Aspect,Sound;
 DIGITAL_INPUT SendNewCH;
+DIGITAL_INPUT UsingTcpIP, TcpConnectFb;
 DIGITAL_INPUT Numbers[10];
 ANALOG_INPUT Change_Source, Change_Volume_Level,Change_TV_Channel,Change_Analog_Closed_Caption;
-ANALOG_INPUT Change_Digital_Closed_Caption, NewMajorCH, NewMinorCH;
+ANALOG_INPUT Change_Digital_Closed_Caption, NewMajorCH, NewMinorCH, TcpStatus;
 // STRING_INPUT 
 BUFFER_INPUT FromDevice[500];
 
@@ -137,27 +138,36 @@ STRING RX_Header[7],RX_Message[50],RX_Trash[100];
 
 Function Send()
 {
-    CommandToBeSent = Remove("\x0D\x0A\x0A",CommandString);
-    CommandToBeSent = left(CommandToBeSent,len(CommandToBeSent)-3);
+	if((UsingTcpIP = 0) || ((TcpConnectFb = 1) && (TcpStatus = 2)))
+	{
+    	CommandToBeSent = Remove("\x0D\x0A\x0A",CommandString);
+    	CommandToBeSent = left(CommandToBeSent,len(CommandToBeSent)-3);
 
-    ToDevice = CommandToBeSent;
+    	ToDevice = CommandToBeSent;
 
-    wait(1000,SendWait1)
-    {
-        Trace("SendWait1");
-	    ToDevice = CommandToBeSent;
-    }
-    wait(2000,SendWait2)
-    {
-        Trace("SendWait2");
-	    ToDevice = CommandToBeSent;
-    }
-    wait(3000,SendWait3)
-    {
-        Trace("IO Timeout");
-        sending = 0;
-        CommandString = "";
-    }
+    	wait(1000,SendWait1)
+    	{
+        	Trace("SendWait1");
+	    	ToDevice = CommandToBeSent;
+    	}
+    	wait(2000,SendWait2)
+    	{
+        	Trace("SendWait2");
+	    	ToDevice = CommandToBeSent;
+    	}
+    	wait(3000,SendWait3)
+    	{
+    	    Trace("IO Timeout");
+    	    sending = 0;
+    	    CommandString = "";
+    	}
+	}
+	else
+	{
+   	    Trace("TCP Status error");
+   	    sending = 0;
+   	    CommandString = "";
+	}
 }
 
 /*
