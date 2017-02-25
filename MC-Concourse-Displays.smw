@@ -4,7 +4,7 @@ Version=1
 [
 ObjTp=FSgntr
 Sgntr=SimplWindow
-RelVrs=4.05.04
+RelVrs=4.06.01
 IntStrVrs=2
 MinSMWVrs=4.02.22
 MinTIOVrs=700
@@ -19,13 +19,13 @@ S1Nd=2
 SLNd=3
 PrNm=MC-Concourse-Displays.smw
 CmVr=3.03
-DbVr=61.00.002.00
-DvcDbVr=81.00.002.00
+DbVr=61.06.001.00
+DvcDbVr=82.00.002.00
 PgmNm=David Allred
 DlrNm=BYU
 CltNm=MC Concourse Displays
-SmVr=1021
-DvVr=1021
+SmVr=1024
+DvVr=1024
 TpN1=1
 TpN2=2
 TpN3=3
@@ -2015,6 +2015,7 @@ SlC=80
 Ad=01
 RelStat=None
 ProdLine=2-Series
+DbH=21
 ]
 [
 ObjTp=Dv
@@ -2232,6 +2233,15 @@ Mnf=Crestron
 Mdl=TCP/IP Client
 ]
 [
+ObjTp=Db
+H=21
+DvH=601
+Whc=3
+Mnf=Crestron
+Mdl=IP Client Ctrl
+Tpe=TCP/IP Client Control
+]
+[
 ObjTp=Cs
 H=1
 DvH=556
@@ -2334,6 +2344,20 @@ Nm2=Channel Entry
 Sx2=0
 Sy2=0
 Mx2=0
+]
+[
+ObjTp=Bw
+H=1
+Lx=593
+Ly=0
+Rx=1828
+Ry=908
+Xm=-1
+Ym=-1
+SH=285
+Z=100
+Ht=1
+Hi=1
 ]
 [
 ObjTp=Bw
@@ -2680,7 +2704,7 @@ H=4
 SmC=156
 Nm=Logic
 ObjVer=1
-CF=2
+CF=1
 mC=2
 C1=50
 C2=38
@@ -3506,7 +3530,7 @@ SmC=156
 Nm=SUBSYSTEM
 ObjVer=1
 PrH=4
-CF=2
+CF=1
 Cmn1=Displays\\
 mC=23
 C1=109
@@ -3878,9 +3902,9 @@ SmC=156
 Nm=SUBSYSTEM
 ObjVer=1
 PrH=38
-CF=2
+CF=1
 Cmn1=DisplayS1
-mC=12
+mC=13
 C1=49
 C2=41
 C3=40
@@ -3893,6 +3917,7 @@ C9=64
 C10=65
 C11=66
 C12=67
+C13=285
 ]
 [
 ObjTp=Sm
@@ -10724,6 +10749,22 @@ I1=739
 mO=1
 tO=1
 O1=714
+]
+[
+ObjTp=Sm
+H=285
+SmC=103
+Nm=sony-api-control.usp
+ObjVer=1
+PrH=47
+CF=1
+n2I=7
+n1O=3
+mI=7
+mO=8
+tO=8
+mP=1
+P1=
 ]
 [
 ObjTp=CED

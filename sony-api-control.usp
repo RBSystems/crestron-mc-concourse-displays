@@ -1,0 +1,473 @@
+/*******************************************************************************************
+  SIMPL+ Module Information
+  (Fill in comments below)
+*******************************************************************************************/
+/*
+Dealer Name: Brigham Young University
+System Name: Metrics Proxy
+System Number: 1.1.0
+Programmer: Dan Clegg
+Comments: Forwards Metrics Events
+*/
+
+/*******************************************************************************************
+  Compiler Directives
+  (Uncomment and declare compiler directives as needed)
+*******************************************************************************************/
+#SYMBOL_NAME "Sony Display IP Controller"
+#CATEGORY "46" "Sony Displays"
+#DEFINE_CONSTANT	BIGGESTSIZE	65534
+#DEFINE_CONSTANT	NEWLINE	"\n"
+#OUTPUT_SHIFT 25
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+
+/*******************************************************************************************
+  DIGITAL_INPUT, ANALOG_INPUT, STRING_INPUT, BUFFER_INPUT inputs and DIGITAL_OUTPUT,
+  ANALOG_OUTPUT, STRING_OUTPUT and SERIAL_OUTPUT outputs
+*******************************************************************************************/
+//DIGITAL_INPUT Startup_press,Confirm_System_Off,Program_Volume_Down,Program_Volume_Up,Select_AV_Jack,Select_Blank,Select_BluRay,Select_Device_Control_Bluray,Select_Device_Control_IPTV,Select_HDMI_Cable,Select_HDMI_Jack,Select_IPTV,Select_Local_Input,Select_PA_Control,Select_Remote_Input1,Select_Remote_Input2,Select_VGA_Cable,Help_Menu_Press,Home_button,Program_Volume_Slider_Press,Audio_Only_Press;
+//DIGITAL_INPUT actRegister,getApplicationList,getApplicationStatusList,getAudioSourceScreen,getBannerMode,getBroadcastLinkServerInfo,getBrowserBookmarkList,getColorKeysLayout,getConflictScheduleList,getContentCount,getContentList,getContentShareServerInfo,getCurrentExternalInputsStatus,getCurrentTime,getDateTimeFormat,getDeviceMode,getHistoryList,getInterfaceInformation,getLEDIndicatorStatus,getMethodTypes,getMultiScreenMode,getNetworkSettings,getParentalRatingSettings,getPhotoList,getPhotoShareServerInfo,getPipSubScreenPosition,getPlayingContentInfo,getPostalCode,getPowerSavingMode,getPowerStatus,getPublicKey,getRecordingStatus,getRemoteControllerInfo,getRemoteDeviceSettings,getSceneSetting;
+//DIGITAL_INPUT getScheduleList,getSchemeList,getServiceProtocols,getSoundSettings,getSourceList,getSpeakerSettings,getSupportedApiInfo,getSupportedRepeatType,getSystemInformation,getSystemSupportedFunction,getTextForm,getTextUrl,getUserList,getVersions,getVolumeInformation,getWolMode,playPhotoContent,requestReboot,requestToNotifyDeviceStatus,requestToNotifyEvent,requestToNotifyScreenState,requestToNotifySystemInformation,rotatePhoto,sendMessage,setActiveApp,setAudioMute,setAudioSourceScreen,setAudioVolume,setCurrentTime,setPlayContent,setPlayTvContent,setPostalCode,setSoundSettings,setSpeakerSettings,togglePlayStatus;
+//DIGITAL_INPUT _skip_,_skip_,_skip_,_skip_,_skip_;
+
+STRING_INPUT	PSK$[32],IPAddress[32],TVChannel[32],parseRx[BIGGESTSIZE];
+
+ANALOG_INPUT	_skip_,_skip_,setVolumeValue;
+
+
+ANALOG_OUTPUT	volumeValue,_skip_,_skip_;
+
+STRING_OUTPUT	ERR_MSG$;	
+STRING_OUTPUT	RX$;
+
+DIGITAL_OUTPUT ERR,_SKIP_,_SKIP_;
+
+#USER_SIMPLSHARP_LIBRARY "SimplSharpNetUtils"
+
+
+/*******************************************************************************************
+  Global Variables
+  (Uncomment and declare global variables as needed)
+  Note:  Be sure to initialize all declared STRING variables as needed
+         For example, in Function Main: myString = "";
+*******************************************************************************************/
+
+STRING PSK[32],IP[32],body[1024],TVCH[32],rx[BIGGESTSIZE],URL[1024];
+INTEGER volume;
+
+HTTPRequest client;
+
+/*******************************************************************************************
+  Functions -- No Editing
+*******************************************************************************************/
+
+Function Log(string msg)
+{
+	Print("\n%s",msg);
+}
+
+Function Error(string msg)
+{
+	Log(msg);
+}
+
+/*******************************************************************************************
+  Event Handlers
+  (Uncomment and declare additional event handlers as needed)
+*******************************************************************************************/
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/******************
+//
+// !!! MOVE ACTIVE SIGNAL EVENTS INTO THIS SECTION !!!
+//
+******************/
+
+
+FUNCTION sendMessage(string resource, string body) {	
+	SIGNED_LONG_INTEGER result;
+	result = client.SendCommand(URL, resource, body, PSK);
+}
+/*
+INTEGER_FUNCTION actRegister() // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getApplicationList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getApplicationStatusList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getAudioSourceScreen () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getBannerMode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getBroadcastLinkServerInfo () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getBrowserBookmarkList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getColorKeysLayout () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getConflictScheduleList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getContentCount () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getContentList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getContentShareServerInfo () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getCurrentExternalInputsStatus () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getCurrentTime () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getDateTimeFormat () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getDeviceMode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getHistoryList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getInterfaceInformation () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getLEDIndicatorStatus () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getMethodTypes () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getMultiScreenMode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getNetworkSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getParentalRatingSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPhotoList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPhotoShareServerInfo () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPipSubScreenPosition () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPlayingContentInfo () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPostalCode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPowerSavingMode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPowerStatus () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getPublicKey () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getRecordingStatus () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getRemoteControllerInfo () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getRemoteDeviceSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSceneSetting () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getScheduleList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSchemeList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getServiceProtocols () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSoundSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSourceList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSpeakerSettings () // Description
+ {
+ //method Content
+ }*/
+FUNCTION getApiInfo () // Description
+ {
+	body = "{ \"id\": 5, \"method\": \"getSupportedApiInfo\", \"params\": [{ \"services\": [\"system\", \"avContent\", \"guide\", \"accessControl\", \"appControl\", \"audio\", \"avContent\", \"browser\", \"encryption\", \"notification\", \"recording\", \"system\", \"videoScreen\", \"cec\", \"photoshare\", \"broadcastLink\", \"contentshare\",]}], \"version\": \"1.0\"}";
+	sendMessage("guide", body);
+}
+/*
+INTEGER_FUNCTION getSupportedRepeatType () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSystemInformation () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getSystemSupportedFunction () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getTextForm () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getTextUrl () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getUserList () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getVersions () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getVolumeInformation () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION getWolMode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION playPhotoContent () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION requestReboot () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION requestToNotifyDeviceStatus () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION requestToNotifyEvent () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION requestToNotifyScreenState () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION requestToNotifySystemInformation () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION rotatePhoto () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setActiveApp () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setAudioMute () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setAudioSourceScreen () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setAudioVolume () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setCurrentTime () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setPlayContent () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setPlayTvContent () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setPostalCode () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setSoundSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION setSpeakerSettings () // Description
+ {
+ //method Content
+ }
+INTEGER_FUNCTION togglePlayStatus () // Description
+ {
+ //method Content
+ }
+    
+*/
+
+/*INTEGER_FUNCTION Audio_Only_Press // Audio Only button on init screen
+{
+	// Designated Session Start
+	StartSession();
+
+	// User Event
+	//BuildHttpMessage("touchpanel", "Audio_Only_Press",USER,SESSION);
+	BuildHttpMessage("touchpanel", "Audio Only",USER,SESSION);
+}*/
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// !!!!!!!!! MOVE INACTIVE SIGNAL EVENTS HERE !!!!!!!!!!!!!!
+
+///////
+// UNUSED API RESOURCES
+///////
+//actBrowserControl
+//addSchedule
+//closeContentShare
+//closePhotoShare
+//deleteContent
+//deleteSchedule
+//setBannerMode
+//setBgmControlMode
+//setCecControlMode
+//setConnectionMode
+//setCsxUserAccount
+//setDeleteProtection
+//setDeviceMode
+//setFavoriteContentList
+//setLanguage
+//setLEDIndicatorStatus
+//setMhlAutoInputChangeMode
+//setMhlPowerFeedMode
+//setMultiScreenMode
+//setPapScreenSize
+//setPipSubScreenPosition
+//setPowerSavingMode
+//setPowerStatus
+//setPowerSyncMode
+//setQuickInvitationMode
+//setSceneSetting
+//setTextForm
+//setTextUrl
+//setTvContentVisibility
+//setUserNickName
+//setWolMode
+//terminateApps
+//voteContent
+
+// !!!!!!!! SYSTEM SETUP EVENTS -- NO EDITING
+
+CHANGE PSK$
+{
+	PSK = PSK$;
+}
+
+CHANGE IPAddress
+{
+	IP = IPAddress;
+	URL = "http://" + IP;
+}
+
+Callback Function OnReceive(String s)
+{
+	TRACE("On Rx$");
+	RX$ = s;
+}
+
+Callback Function OnError(String s)
+{
+	TRACE("On Rx$");
+	RX$ = s;
+}
+
+Function Init()
+{
+	RegisterDelegate(client,OnResponse,OnReceive);
+	RegisterDelegate(client,OnError,OnError);
+	PSK = "";
+	IP = "";
+}
+
+/*******************************************************************************************
+  Main()
+  Uncomment and place one-time startup code here
+  (This code will get called when the system starts up)
+*******************************************************************************************/
+
+Function Main()
+{
+    WaitForInitializationComplete();
+
+	Init();
+}
