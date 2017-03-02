@@ -64,14 +64,152 @@ namespace UserModule_SONY_API_CONTROL
             
             }
             
+        private ushort GETPLAYINGCONTENTINFO (  SplusExecutionContext __context__ ) 
+            { 
+            
+            __context__.SourceCodeLine = 201;
+            BODY  .UpdateValue ( "{\"id\":103,\"method\":\"getPlayingContentInfo\",\"params\":[],\"version\":\"1.0\"}"  ) ; 
+            __context__.SourceCodeLine = 202;
+            SENDMESSAGE (  __context__ , "avContent", BODY) ; 
+            
+            return 0; // default return value (none specified in module)
+            }
+            
+        private ushort GETPOWERSTATUS (  SplusExecutionContext __context__ ) 
+            { 
+            
+            __context__.SourceCodeLine = 215;
+            BODY  .UpdateValue ( "{\"id\":50,\"method\":\"getPowerStatus\",\"params\":[],\"version\":\"1.0\"}"  ) ; 
+            __context__.SourceCodeLine = 216;
+            SENDMESSAGE (  __context__ , "system", BODY) ; 
+            
+            return 0; // default return value (none specified in module)
+            }
+            
+        private ushort SETPOWERSTATUS (  SplusExecutionContext __context__, ushort N ) 
+            { 
+            
+            __context__.SourceCodeLine = 220;
+            if ( Functions.TestForTrue  ( ( Functions.BoolToInt (N == 1))  ) ) 
+                { 
+                __context__.SourceCodeLine = 222;
+                BODY  .UpdateValue ( "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":true}],\"version\":\"1.0\"}"  ) ; 
+                } 
+            
+            __context__.SourceCodeLine = 224;
+            if ( Functions.TestForTrue  ( ( Functions.BoolToInt (N == 0))  ) ) 
+                { 
+                __context__.SourceCodeLine = 226;
+                BODY  .UpdateValue ( "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":false}],\"version\":\"1.0\"}"  ) ; 
+                } 
+            
+            __context__.SourceCodeLine = 228;
+            SENDMESSAGE (  __context__ , "system", BODY) ; 
+            
+            return 0; // default return value (none specified in module)
+            }
+            
         private void GETAPIINFO (  SplusExecutionContext __context__ ) 
             { 
             
-            __context__.SourceCodeLine = 261;
+            __context__.SourceCodeLine = 276;
             BODY  .UpdateValue ( "{ \"id\": 5, \"method\": \"getSupportedApiInfo\", \"params\": [{ \"services\": [\"system\", \"avContent\", \"guide\", \"accessControl\", \"appControl\", \"audio\", \"avContent\", \"browser\", \"encryption\", \"notification\", \"recording\", \"system\", \"videoScreen\", \"cec\", \"photoshare\", \"broadcastLink\", \"contentshare\",]}], \"version\": \"1.0\"}"  ) ; 
-            __context__.SourceCodeLine = 262;
+            __context__.SourceCodeLine = 277;
             SENDMESSAGE (  __context__ , "guide", BODY) ; 
             
+            }
+            
+        private ushort SETPLAYCONTENT (  SplusExecutionContext __context__, CrestronString SRC__DOLLAR__ , ushort MAJORCH , ushort MINORCH ) 
+            { 
+            
+            __context__.SourceCodeLine = 366;
+            if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI1") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "hdmi1") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI 1") )) ))  ) ) 
+                { 
+                __context__.SourceCodeLine = 368;
+                BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=1\"}],\"version\":\"1.0\"}"  ) ; 
+                } 
+            
+            else 
+                {
+                __context__.SourceCodeLine = 370;
+                if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI2") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "hdmi2") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI 2") )) ))  ) ) 
+                    { 
+                    __context__.SourceCodeLine = 372;
+                    BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=2\"}],\"version\":\"1.0\"}"  ) ; 
+                    } 
+                
+                else 
+                    {
+                    __context__.SourceCodeLine = 374;
+                    if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI3") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "hdmi3") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI 3/ARC") )) ))  ) ) 
+                        { 
+                        __context__.SourceCodeLine = 376;
+                        BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=3\"}],\"version\":\"1.0\"}"  ) ; 
+                        } 
+                    
+                    else 
+                        {
+                        __context__.SourceCodeLine = 378;
+                        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI4") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "hdmi4") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "HDMI 4") )) ))  ) ) 
+                            { 
+                            __context__.SourceCodeLine = 380;
+                            BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=4\"}],\"version\":\"1.0\"}"  ) ; 
+                            } 
+                        
+                        else 
+                            {
+                            __context__.SourceCodeLine = 382;
+                            if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "Video 1") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "Composite") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "composite") )) ))  ) ) 
+                                { 
+                                __context__.SourceCodeLine = 384;
+                                BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:composite?port=1\"}],\"version\":\"1.0\"}"  ) ; 
+                                } 
+                            
+                            else 
+                                {
+                                __context__.SourceCodeLine = 386;
+                                if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "Video 2") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "Component") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "component") )) ))  ) ) 
+                                    { 
+                                    __context__.SourceCodeLine = 388;
+                                    BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:component?port=1\"}],\"version\":\"1.0\"}"  ) ; 
+                                    } 
+                                
+                                else 
+                                    {
+                                    __context__.SourceCodeLine = 390;
+                                    if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "Screen Mirroring") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "widi") )) ))  ) ) 
+                                        { 
+                                        __context__.SourceCodeLine = 392;
+                                        BODY  .UpdateValue ( "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:widi?port=1\"}],\"version\":\"1.0\"}"  ) ; 
+                                        } 
+                                    
+                                    else 
+                                        {
+                                        __context__.SourceCodeLine = 394;
+                                        if ( Functions.TestForTrue  ( ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt ( (Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "TV") ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "tv") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "atscc") )) ) ) || Functions.TestForTrue ( Functions.BoolToInt (SRC__DOLLAR__ == "atsc") )) ))  ) ) 
+                                            { 
+                                            __context__.SourceCodeLine = 396;
+                                            MakeString ( BODY , "{{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{{\"uri\":\"tv:atscc?dispNum={0:d}.{1:d}&trip=0.{2:d}.{3:d}\"}}],\"version\":\"1.0\"}}", (ushort)MAJORCH, (ushort)MINORCH, (ushort)MAJORCH, (ushort)MINORCH) ; 
+                                            } 
+                                        
+                                        }
+                                    
+                                    }
+                                
+                                }
+                            
+                            }
+                        
+                        }
+                    
+                    }
+                
+                }
+            
+            __context__.SourceCodeLine = 399;
+            SENDMESSAGE (  __context__ , "avContent", BODY) ; 
+            
+            return 0; // default return value (none specified in module)
             }
             
         object PSK__DOLLAR___OnChange_0 ( Object __EventInfo__ )
@@ -82,7 +220,7 @@ namespace UserModule_SONY_API_CONTROL
             {
                 SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
                 
-                __context__.SourceCodeLine = 433;
+                __context__.SourceCodeLine = 480;
                 PSK  .UpdateValue ( PSK__DOLLAR__  ) ; 
                 
                 
@@ -101,9 +239,9 @@ namespace UserModule_SONY_API_CONTROL
         {
             SplusExecutionContext __context__ = SplusThreadStartCode(__SignalEventArg__);
             
-            __context__.SourceCodeLine = 438;
+            __context__.SourceCodeLine = 485;
             IP  .UpdateValue ( IPADDRESS  ) ; 
-            __context__.SourceCodeLine = 439;
+            __context__.SourceCodeLine = 486;
             URL  .UpdateValue ( "http://" + IP  ) ; 
             
             
@@ -120,9 +258,9 @@ public void ONRECEIVE ( SimplSharpString S )
     {
         SplusExecutionContext __context__ = SplusSimplSharpDelegateThreadStartCode();
         
-        __context__.SourceCodeLine = 444;
+        __context__.SourceCodeLine = 491;
         /* Trace( "On Rx$") */ ; 
-        __context__.SourceCodeLine = 445;
+        __context__.SourceCodeLine = 492;
         RX__DOLLAR__  .UpdateValue ( S  .ToString()  ) ; 
         
         
@@ -136,9 +274,9 @@ public void ONERROR ( SimplSharpString S )
     {
         SplusExecutionContext __context__ = SplusSimplSharpDelegateThreadStartCode();
         
-        __context__.SourceCodeLine = 450;
+        __context__.SourceCodeLine = 497;
         /* Trace( "On Rx$") */ ; 
-        __context__.SourceCodeLine = 451;
+        __context__.SourceCodeLine = 498;
         RX__DOLLAR__  .UpdateValue ( S  .ToString()  ) ; 
         
         
@@ -149,15 +287,15 @@ public void ONERROR ( SimplSharpString S )
 private void INIT (  SplusExecutionContext __context__ ) 
     { 
     
-    __context__.SourceCodeLine = 456;
+    __context__.SourceCodeLine = 503;
     // RegisterDelegate( CLIENT , ONRESPONSE , ONRECEIVE ) 
     CLIENT .OnResponse  = ONRECEIVE; ; 
-    __context__.SourceCodeLine = 457;
+    __context__.SourceCodeLine = 504;
     // RegisterDelegate( CLIENT , ONERROR , ONERROR ) 
     CLIENT .OnError  = ONERROR; ; 
-    __context__.SourceCodeLine = 458;
+    __context__.SourceCodeLine = 505;
     PSK  .UpdateValue ( ""  ) ; 
-    __context__.SourceCodeLine = 459;
+    __context__.SourceCodeLine = 506;
     IP  .UpdateValue ( ""  ) ; 
     
     }
@@ -168,9 +306,9 @@ public override object FunctionMain (  object __obj__ )
     {
         SplusExecutionContext __context__ = SplusFunctionMainStartCode();
         
-        __context__.SourceCodeLine = 470;
+        __context__.SourceCodeLine = 517;
         WaitForInitializationComplete ( ) ; 
-        __context__.SourceCodeLine = 472;
+        __context__.SourceCodeLine = 519;
         INIT (  __context__  ) ; 
         
         

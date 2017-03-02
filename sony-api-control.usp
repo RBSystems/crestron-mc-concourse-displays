@@ -195,11 +195,13 @@ INTEGER_FUNCTION getPhotoShareServerInfo () // Description
 INTEGER_FUNCTION getPipSubScreenPosition () // Description
  {
  //method Content
- }
+ }*/
 INTEGER_FUNCTION getPlayingContentInfo () // Description
  {
- //method Content
+	body = "{\"id\":103,\"method\":\"getPlayingContentInfo\",\"params\":[],\"version\":\"1.0\"}";
+	sendMessage("avContent", body);
  }
+/*
 INTEGER_FUNCTION getPostalCode () // Description
  {
  //method Content
@@ -207,12 +209,25 @@ INTEGER_FUNCTION getPostalCode () // Description
 INTEGER_FUNCTION getPowerSavingMode () // Description
  {
  //method Content
- }
+ }*/
 INTEGER_FUNCTION getPowerStatus () // Description
  {
- //method Content
+	body = "{\"id\":50,\"method\":\"getPowerStatus\",\"params\":[],\"version\":\"1.0\"}";
+	sendMessage("system", body);
  }
-INTEGER_FUNCTION getPublicKey () // Description
+INTEGER_FUNCTION setPowerStatus (integer n)	//True or false, 1 for on, 0 for off
+ {
+	if (n = 1)
+	{
+		body = "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":true}],\"version\":\"1.0\"}";
+	}
+	if (n = 0)
+	{
+		body = "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":false}],\"version\":\"1.0\"}";
+	}
+	sendMessage("system", body);
+ }
+/*INTEGER_FUNCTION getPublicKey () // Description
  {
  //method Content
  }
@@ -345,11 +360,44 @@ INTEGER_FUNCTION setAudioVolume () // Description
 INTEGER_FUNCTION setCurrentTime () // Description
  {
  //method Content
- }
-INTEGER_FUNCTION setPlayContent () // Description
+ }*/
+INTEGER_FUNCTION setPlayContent (string src$, integer majorCH, integer minorCH) // Description
  {
- //method Content
- }
+ 	if (src$ = "HDMI1" || src$ = "hdmi1" || src$ = "HDMI 1")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=1\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "HDMI2" || src$ = "hdmi2" || src$ = "HDMI 2")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=2\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "HDMI3" || src$ = "hdmi3" || src$ = "HDMI 3/ARC")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=3\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "HDMI4" || src$ = "hdmi4" || src$ = "HDMI 4")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=4\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "Video 1" || src$ = "Composite" || src$ = "composite")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:composite?port=1\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "Video 2" || src$ = "Component" || src$ = "component")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:component?port=1\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "Screen Mirroring" || src$ = "widi")
+	{
+		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:widi?port=1\"}],\"version\":\"1.0\"}";
+	}
+	else if (src$ = "TV" || src$ = "tv" || src$ = "atscc" || src$ = "atsc")
+	{
+		makestring (body, "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"tv:atscc?dispNum=%u.%u&trip=0.%u.%u\"}],\"version\":\"1.0\"}", majorCH, minorCH, majorCH, minorCH);
+	}
+
+	sendMessage("avContent", body);
+ }/*
 INTEGER_FUNCTION setPlayTvContent () // Description
  {
  //method Content
@@ -414,7 +462,6 @@ INTEGER_FUNCTION togglePlayStatus () // Description
 //setPapScreenSize
 //setPipSubScreenPosition
 //setPowerSavingMode
-//setPowerStatus
 //setPowerSyncMode
 //setQuickInvitationMode
 //setSceneSetting
