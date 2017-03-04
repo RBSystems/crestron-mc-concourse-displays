@@ -17031,6 +17031,17 @@
             Represents remote connection information class.
             </summary>
         </member>
+        <member name="M:Crestron.SimplSharp.Ssh.ConnectionInfo.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Crestron.SimplSharp.Ssh.ConnectionInfo.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
         <member name="M:Crestron.SimplSharp.Ssh.ConnectionInfo.#ctor(System.String,System.String,Crestron.SimplSharp.Ssh.AuthenticationMethod[])">
             <summary>
             Initializes a new instance of the <see cref="T:Crestron.SimplSharp.Ssh.ConnectionInfo"/> class.
@@ -33843,6 +33854,17 @@
             Base class for asymmetric cipher algorithms
             </summary>
         </member>
+        <member name="M:Crestron.SimplSharp.Ssh.Security.Key.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged ResourceMessages.
+            </summary>
+        </member>
+        <member name="M:Crestron.SimplSharp.Ssh.Security.Key.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged ResourceMessages.</param>
+        </member>
         <member name="F:Crestron.SimplSharp.Ssh.Security.Key._privateKey">
             <summary>
             Specifies array of big integers that represent private key
@@ -33917,11 +33939,6 @@
             <param name="g">The g.</param>
             <param name="y">The y.</param>
             <param name="x">The x.</param>
-        </member>
-        <member name="M:Crestron.SimplSharp.Ssh.Security.DsaKey.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged ResourceMessages.
-            </summary>
         </member>
         <member name="M:Crestron.SimplSharp.Ssh.Security.DsaKey.Dispose(System.Boolean)">
             <summary>
@@ -34273,11 +34290,6 @@
             <param name="proxyPort">The proxy port.</param>
             <param name="proxyUsername">The proxy username.</param>
             <param name="proxyPassword">The proxy password.</param>
-        </member>
-        <member name="M:Crestron.SimplSharp.Ssh.KeyboardInteractiveConnectionInfo.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
         </member>
         <member name="M:Crestron.SimplSharp.Ssh.KeyboardInteractiveConnectionInfo.Dispose(System.Boolean)">
             <summary>
@@ -39615,11 +39627,6 @@
             <param name="proxyUsername">The proxy username.</param>
             <param name="proxyPassword">The proxy password.</param>
         </member>
-        <member name="M:Crestron.SimplSharp.Ssh.PasswordConnectionInfo.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-        </member>
         <member name="M:Crestron.SimplSharp.Ssh.PasswordConnectionInfo.Dispose(System.Boolean)">
             <summary>
             Releases unmanaged and - optionally - managed resources
@@ -44408,11 +44415,6 @@
             <param name="q">The q.</param>
             <param name="inverseQ">The inverse Q.</param>
         </member>
-        <member name="M:Crestron.SimplSharp.Ssh.Security.RsaKey.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged ResourceMessages.
-            </summary>
-        </member>
         <member name="M:Crestron.SimplSharp.Ssh.Security.RsaKey.Dispose(System.Boolean)">
             <summary>
             Releases unmanaged and - optionally - managed resources
@@ -45938,11 +45940,6 @@
             <param name="proxyUsername">The proxy username.</param>
             <param name="proxyPassword">The proxy password.</param>
             <param name="keyFiles">The key files.</param>
-        </member>
-        <member name="M:Crestron.SimplSharp.Ssh.PrivateKeyConnectionInfo.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
         </member>
         <member name="M:Crestron.SimplSharp.Ssh.PrivateKeyConnectionInfo.Dispose(System.Boolean)">
             <summary>
@@ -51410,6 +51407,12 @@
         <member name="F:Crestron.SimplSharp.eSystemEventType.DiskRemoved">
             <summary>
             Removable media removed
+            </summary>
+        </member>
+        <member name="F:Crestron.SimplSharp.eSystemEventType.TimeChange">
+            <summary>
+            Time/Timezone Changed event
+            Use <see cref="M:Crestron.SimplSharp.CrestronEnvironment.GetLocalTime"/> to get the updated time and <see cref="O:Crestron.SimplSharp.CrestronEnvironment.GetTimeZone"/> to get the updated timzeone.
             </summary>
         </member>
         <member name="T:Crestron.SimplSharp.SystemEventHandler">

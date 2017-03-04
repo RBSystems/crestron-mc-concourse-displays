@@ -4,9 +4,9 @@
 *******************************************************************************************/
 /*
 Dealer Name: Brigham Young University
-System Name: Metrics Proxy
+System Name: Sony-API-Control
 System Number: 1.1.0
-Programmer: Dan Clegg
+Programmer: Dan Clegg/David Allred
 Comments: Forwards Metrics Events
 */
 
@@ -18,7 +18,7 @@ Comments: Forwards Metrics Events
 #CATEGORY "46" "Sony Displays"
 #DEFINE_CONSTANT	BIGGESTSIZE	65534
 #DEFINE_CONSTANT	NEWLINE	"\n"
-#OUTPUT_SHIFT 25
+//#OUTPUT_SHIFT 25
 #DEFAULT_VOLATILE
 #ENABLE_STACK_CHECKING
 
@@ -26,12 +26,30 @@ Comments: Forwards Metrics Events
   DIGITAL_INPUT, ANALOG_INPUT, STRING_INPUT, BUFFER_INPUT inputs and DIGITAL_OUTPUT,
   ANALOG_OUTPUT, STRING_OUTPUT and SERIAL_OUTPUT outputs
 *******************************************************************************************/
-//DIGITAL_INPUT Startup_press,Confirm_System_Off,Program_Volume_Down,Program_Volume_Up,Select_AV_Jack,Select_Blank,Select_BluRay,Select_Device_Control_Bluray,Select_Device_Control_IPTV,Select_HDMI_Cable,Select_HDMI_Jack,Select_IPTV,Select_Local_Input,Select_PA_Control,Select_Remote_Input1,Select_Remote_Input2,Select_VGA_Cable,Help_Menu_Press,Home_button,Program_Volume_Slider_Press,Audio_Only_Press;
-//DIGITAL_INPUT actRegister,getApplicationList,getApplicationStatusList,getAudioSourceScreen,getBannerMode,getBroadcastLinkServerInfo,getBrowserBookmarkList,getColorKeysLayout,getConflictScheduleList,getContentCount,getContentList,getContentShareServerInfo,getCurrentExternalInputsStatus,getCurrentTime,getDateTimeFormat,getDeviceMode,getHistoryList,getInterfaceInformation,getLEDIndicatorStatus,getMethodTypes,getMultiScreenMode,getNetworkSettings,getParentalRatingSettings,getPhotoList,getPhotoShareServerInfo,getPipSubScreenPosition,getPlayingContentInfo,getPostalCode,getPowerSavingMode,getPowerStatus,getPublicKey,getRecordingStatus,getRemoteControllerInfo,getRemoteDeviceSettings,getSceneSetting;
-//DIGITAL_INPUT getScheduleList,getSchemeList,getServiceProtocols,getSoundSettings,getSourceList,getSpeakerSettings,getSupportedApiInfo,getSupportedRepeatType,getSystemInformation,getSystemSupportedFunction,getTextForm,getTextUrl,getUserList,getVersions,getVolumeInformation,getWolMode,playPhotoContent,requestReboot,requestToNotifyDeviceStatus,requestToNotifyEvent,requestToNotifyScreenState,requestToNotifySystemInformation,rotatePhoto,sendMessage,setActiveApp,setAudioMute,setAudioSourceScreen,setAudioVolume,setCurrentTime,setPlayContent,setPlayTvContent,setPostalCode,setSoundSettings,setSpeakerSettings,togglePlayStatus;
+/*DIGITAL_INPUT actRegister,getApplicationList,getApplicationStatusList,getAudioSourceScreen,
+getBannerMode,getBroadcastLinkServerInfo,getBrowserBookmarkList,getColorKeysLayout,
+getConflictScheduleList,getContentCount,getContentList,getContentShareServerInfo,
+getCurrentExternalInputsStatus,getCurrentTime,getDateTimeFormat,getDeviceMode,getHistoryList,
+getInterfaceInformation,getLEDIndicatorStatus,getMethodTypes,getMultiScreenMode,
+getNetworkSettings,getParentalRatingSettings,getPhotoList,getPhotoShareServerInfo,
+getPipSubScreenPosition,getPlayingContentInfo,getPostalCode,getPowerSavingMode,
+getPowerStatus,getPublicKey,getRecordingStatus,getRemoteControllerInfo,
+getRemoteDeviceSettings,getSceneSetting;*/
+/*DIGITAL_INPUT getScheduleList,getSchemeList,getServiceProtocols,getSoundSettings,
+getSourceList,getSpeakerSettings,getSupportedApiInfo,getSupportedRepeatType,
+getSystemInformation,getSystemSupportedFunction,getTextForm,getTextUrl,getUserList,
+getVersions,getVolumeInformation,getWolMode,playPhotoContent,requestReboot,
+requestToNotifyDeviceStatus,requestToNotifyEvent,requestToNotifyScreenState,
+requestToNotifySystemInformation,rotatePhoto,sendMessage,setActiveApp,setAudioMute,
+setAudioSourceScreen,setAudioVolume,setCurrentTime,setPlayContent,setPlayTvContent,
+setPostalCode,setSoundSettings,setSpeakerSettings,togglePlayStatus;*/
 //DIGITAL_INPUT _skip_,_skip_,_skip_,_skip_,_skip_;
+DIGITAL_INPUT Poll_Main_Info,Turn_Power_On, Turn_Power_Off, Turn_Mute_On, Turn_Mute_Off;
+DIGITAL_INPUT Set_TV_Channel, TV_Channel_Up, TV_Channel_Down;
 
 STRING_INPUT	PSK$[32],IPAddress[32],TVChannel[32],parseRx[BIGGESTSIZE];
+
+ANALOG_INPUT 	NewMajorCH, NewMinorCH;
 
 ANALOG_INPUT	_skip_,_skip_,setVolumeValue;
 
@@ -344,19 +362,28 @@ INTEGER_FUNCTION rotatePhoto () // Description
 INTEGER_FUNCTION setActiveApp () // Description
  {
  //method Content
- }
-INTEGER_FUNCTION setAudioMute () // Description
+ }*/
+INTEGER_FUNCTION setAudioMute (integer mute) // 0 for Mute, 1 for unMute
  {
- //method Content
- }
+	if (mute = 1)
+	{
+		body = "{\"id\":601,\"method\":\"setAudioMute\",\"params\":[{\"status\":false}],\"version\":\"1.0\"}";
+	}
+	if (mute = 0)
+	{                                                                                                          
+		body = "{\"id\":601,\"method\":\"setAudioMute\",\"params\":[{\"status\":true}],\"version\":\"1.0\"}";
+	}
+	sendMessage("audio", body);
+ }/*
 INTEGER_FUNCTION setAudioSourceScreen () // Description
  {
  //method Content
- }
-INTEGER_FUNCTION setAudioVolume () // Description
+ }*/
+INTEGER_FUNCTION setAudioVolume (integer vol) // vol should be between 0 - 100
  {
- //method Content
- }
+	makestring (body, "{\"id\":601,\"method\":\"setAudioVolume\",\"params\":[{\"volume\":\"%u\",\"target\":\"speaker\"}],\"version\":\"1.0\"}", vol);
+	sendMessage("audio", body);
+ }/*
 INTEGER_FUNCTION setCurrentTime () // Description
  {
  //method Content
@@ -397,11 +424,19 @@ INTEGER_FUNCTION setPlayContent (string src$, integer majorCH, integer minorCH) 
 	}
 
 	sendMessage("avContent", body);
- }/*
-INTEGER_FUNCTION setPlayTvContent () // Description
- {
- //method Content
  }
+INTEGER_FUNCTION setPlayTvContent (integer UpOrDN)//True or false, 1 for ChanelUp, 0 for ChannelDn 
+ {
+	if (UpOrDN = 1)
+	{
+		body = "{\"id\":101,\"method\":\"setPlayTvContent\",\"params\":[{\"channel\":{\"shift\":\"+1\"}}],\"version\":\"1.1\"}";
+	}
+	if (UpOrDN = 0)
+	{
+		body = "{\"id\":101,\"method\":\"setPlayTvContent\",\"params\":[{\"channel\":{\"shift\":\"-1\"}}],\"version\":\"1.1\"}";
+	}
+	sendMessage("avContent", body);
+ }/*
 INTEGER_FUNCTION setPostalCode () // Description
  {
  //method Content
@@ -472,6 +507,33 @@ INTEGER_FUNCTION togglePlayStatus () // Description
 //setWolMode
 //terminateApps
 //voteContent
+                                                    
+PUSH Turn_Power_On
+{
+	setPowerStatus (1);	//True or false, 1 for on, 0 for off
+}
+PUSH Turn_Power_Off
+{
+	setPowerStatus (0);	//True or false, 1 for on, 0 for off
+}
+PUSH Turn_Mute_On
+{
+	setAudioMute (0); // 0 for Mute, 1 for unMute
+}
+PUSH Turn_Mute_Off
+{
+	setAudioMute (1); // 0 for Mute, 1 for unMute
+}
+PUSH Set_TV_Channel
+{
+	setPlayContent ("TV", NewMajorCH, NewMinorCH);
+}
+CHANGE setVolumeValue
+{
+	integer AudioVolume;
+	AudioVolume = setVolumeValue;
+	setAudioVolume (AudioVolume);
+}
 
 // !!!!!!!! SYSTEM SETUP EVENTS -- NO EDITING
 
