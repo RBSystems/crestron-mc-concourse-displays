@@ -21,6 +21,8 @@ Comments: Forwards Metrics Events
 //#OUTPUT_SHIFT 25
 #DEFAULT_VOLATILE
 #ENABLE_STACK_CHECKING
+#PRINT_TO_TRACE
+#ENABLE_TRACE
 
 /*******************************************************************************************
   DIGITAL_INPUT, ANALOG_INPUT, STRING_INPUT, BUFFER_INPUT inputs and DIGITAL_OUTPUT,
@@ -244,6 +246,7 @@ INTEGER_FUNCTION setPowerStatus (integer n)	//True or false, 1 for on, 0 for off
 		body = "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":false}],\"version\":\"1.0\"}";
 	}
 	sendMessage("system", body);
+	getPowerStatus ();
  }
 /*INTEGER_FUNCTION getPublicKey () // Description
  {
@@ -322,11 +325,12 @@ INTEGER_FUNCTION getUserList () // Description
 INTEGER_FUNCTION getVersions () // Description
  {
  //method Content
- }
+ }*/
 INTEGER_FUNCTION getVolumeInformation () // Description
  {
- //method Content
- }
+	body = "{\"id\":33,\"method\":\"getVolumeInformation\",\"params\":[],\"version\":\"1.0\"}";
+	sendMessage("audio", body);
+ }/*
 INTEGER_FUNCTION getWolMode () // Description
  {
  //method Content
@@ -374,6 +378,7 @@ INTEGER_FUNCTION setAudioMute (integer mute) // 0 for Mute, 1 for unMute
 		body = "{\"id\":601,\"method\":\"setAudioMute\",\"params\":[{\"status\":true}],\"version\":\"1.0\"}";
 	}
 	sendMessage("audio", body);
+	getVolumeInformation ();
  }/*
 INTEGER_FUNCTION setAudioSourceScreen () // Description
  {
@@ -383,6 +388,7 @@ INTEGER_FUNCTION setAudioVolume (integer vol) // vol should be between 0 - 100
  {
 	makestring (body, "{\"id\":601,\"method\":\"setAudioVolume\",\"params\":[{\"volume\":\"%u\",\"target\":\"speaker\"}],\"version\":\"1.0\"}", vol);
 	sendMessage("audio", body);
+	getVolumeInformation ();
  }/*
 INTEGER_FUNCTION setCurrentTime () // Description
  {
@@ -424,6 +430,7 @@ INTEGER_FUNCTION setPlayContent (string src$, integer majorCH, integer minorCH) 
 	}
 
 	sendMessage("avContent", body);
+	getPlayingContentInfo ();
  }
 INTEGER_FUNCTION setPlayTvContent (integer UpOrDN)//True or false, 1 for ChanelUp, 0 for ChannelDn 
  {
@@ -436,6 +443,7 @@ INTEGER_FUNCTION setPlayTvContent (integer UpOrDN)//True or false, 1 for ChanelU
 		body = "{\"id\":101,\"method\":\"setPlayTvContent\",\"params\":[{\"channel\":{\"shift\":\"-1\"}}],\"version\":\"1.1\"}";
 	}
 	sendMessage("avContent", body);
+	getPlayingContentInfo ();
  }/*
 INTEGER_FUNCTION setPostalCode () // Description
  {
@@ -527,6 +535,19 @@ PUSH Turn_Mute_Off
 PUSH Set_TV_Channel
 {
 	setPlayContent ("TV", NewMajorCH, NewMinorCH);
+}
+PUSH TV_Channel_Up
+{
+}
+PUSH TV_Channel_Down
+{
+}
+PUSH Poll_Main_Info
+{
+	getPowerStatus ();
+	
+	getPlayingContentInfo ();
+	getVolumeInformation ();
 }
 CHANGE setVolumeValue
 {
