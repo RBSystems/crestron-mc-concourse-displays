@@ -107,8 +107,13 @@ Function Error(string msg)
 ******************/
 
 
-FUNCTION sendMessage(string resource, string body) {	
+FUNCTION sendMessage(string resource, string body) 
+{	
 	SIGNED_LONG_INTEGER result;
+	Print("resource %s",resource);
+Print("body %s",body);
+Print("URL %s",URL);
+Print("PSK %s",PSK);
 	result = client.SendCommand(URL, resource, body, PSK);
 }
 /*
@@ -245,6 +250,7 @@ INTEGER_FUNCTION setPowerStatus (integer n)	//True or false, 1 for on, 0 for off
 	{
 		body = "{\"id\":55,\"method\":\"setPowerStatus\",\"params\":[{\"status\":false}],\"version\":\"1.0\"}";
 	}
+	Trace("%s",body);
 	sendMessage("system", body);
 	getPowerStatus ();
  }
