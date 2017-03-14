@@ -1,8 +1,35 @@
 namespace SimplSharpNetUtils;
         // class declarations
+         class HTTPRequest;
          class HttpGetter;
          class TCPSocket;
-         class HTTPRequest;
+     class HTTPRequest 
+    {
+        // class delegates
+        delegate FUNCTION errorHandler ( SIMPLSHARPSTRING errMsg );
+        delegate FUNCTION responseHandler ( SIMPLSHARPSTRING errMsg );
+
+        // class events
+
+        // class functions
+        STRING_FUNCTION jsonParse ( STRING input );
+        STRING_FUNCTION getAttributeValue ( STRING queryPath , STRING bodyToQuery );
+        SIGNED_LONG_INTEGER_FUNCTION Post ( STRING body , STRING headers );
+        SIGNED_LONG_INTEGER_FUNCTION Get ( STRING body , STRING headers );
+        SIGNED_LONG_INTEGER_FUNCTION SendCommand ( STRING baseURL , STRING resource , STRING cmd , STRING psk );
+        STRING_FUNCTION ToString ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+
+        // class variables
+        STRING URL[];
+        SIGNED_LONG_INTEGER Port;
+        SIGNED_LONG_INTEGER numResponseAttributes;
+
+        // class properties
+        DelegateProperty errorHandler OnError;
+        DelegateProperty responseHandler OnResponse;
+    };
+
      class HttpGetter 
     {
         // class delegates
@@ -46,32 +73,5 @@ namespace SimplSharpNetUtils;
         DelegateProperty RxHandler OnRx;
         SIGNED_LONG_INTEGER FilterVtCmds;
         SIGNED_LONG_INTEGER Debug;
-    };
-
-     class HTTPRequest 
-    {
-        // class delegates
-        delegate FUNCTION errorHandler ( SIMPLSHARPSTRING errMsg );
-        delegate FUNCTION responseHandler ( SIMPLSHARPSTRING errMsg );
-
-        // class events
-
-        // class functions
-        STRING_FUNCTION jsonParse ( STRING input );
-        STRING_FUNCTION getAttributeValue ( STRING queryPath , STRING bodyToQuery );
-        SIGNED_LONG_INTEGER_FUNCTION Post ( STRING body , STRING headers );
-        SIGNED_LONG_INTEGER_FUNCTION Get ( STRING body , STRING headers );
-        SIGNED_LONG_INTEGER_FUNCTION SendCommand ( STRING baseURL , STRING resource , STRING cmd , STRING psk );
-        STRING_FUNCTION ToString ();
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-
-        // class variables
-        STRING URL[];
-        SIGNED_LONG_INTEGER Port;
-        SIGNED_LONG_INTEGER numResponseAttributes;
-
-        // class properties
-        DelegateProperty errorHandler OnError;
-        DelegateProperty responseHandler OnResponse;
     };
 

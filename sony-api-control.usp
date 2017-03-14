@@ -46,8 +46,10 @@ requestToNotifySystemInformation,rotatePhoto,sendMessage,setActiveApp,setAudioMu
 setAudioSourceScreen,setAudioVolume,setCurrentTime,setPlayContent,setPlayTvContent,
 setPostalCode,setSoundSettings,setSpeakerSettings,togglePlayStatus;*/
 //DIGITAL_INPUT _skip_,_skip_,_skip_,_skip_,_skip_;
-DIGITAL_INPUT Poll_Main_Info,Turn_Power_On, Turn_Power_Off, Turn_Mute_On, Turn_Mute_Off;
-DIGITAL_INPUT Set_TV_Channel, TV_Channel_Up, TV_Channel_Down;
+DIGITAL_INPUT Poll_Main_Info,Turn_Power_On, Turn_Power_Off, Turn_Mute_On, Turn_Mute_Off,_skip_;
+DIGITAL_INPUT Set_TV_Channel, TV_Channel_Up, TV_Channel_Down,_skip_;
+DIGITAL_INPUT 	SelectSourceHDMI1,SelectSourceHDMI2,SelectSourceHDMI3,SelectSourceHDMI4,
+				SelectSourceVideo1,SelectSourceVideo2,SelectSourceWiDi;
 
 STRING_INPUT	PSK$[32],IPAddress[32],TVChannel[32],parseRx[BIGGESTSIZE];
 
@@ -60,6 +62,9 @@ ANALOG_OUTPUT	volumeValue,_skip_,_skip_;
 
 STRING_OUTPUT	ERR_MSG$;	
 STRING_OUTPUT	RX$;
+
+DIGITAL_OUTPUT 	HDMI1SourceIsSelected,HDMI2SourceIsSelected,HDMI3SourceIsSelected,HDMI4SourceIsSelected,
+				Video1SourceIsSelected,Video2SourceIsSelected,WiDiSourceIsSelected;
 
 DIGITAL_OUTPUT ERR,_SKIP_,_SKIP_;
 
@@ -110,11 +115,14 @@ Function Error(string msg)
 FUNCTION sendMessage(string resource, string body) 
 {	
 	SIGNED_LONG_INTEGER result;
-	Print("resource %s",resource);
-Print("body %s",body);
-Print("URL %s",URL);
-Print("PSK %s",PSK);
-	result = client.SendCommand(URL, resource, body, PSK);
+	STRING resizedResource[50];
+	Print("resource: %s",resource);
+	Print("body: %s",body);
+	Print("URL: %s",URL);
+	Print("PSK: %s",PSK);
+	MakeString(resizedResource, "sony/%s",resource);
+	//resizedResource = "sony/" + resource;
+	result = client.SendCommand(URL, resizedResource, body, PSK);
 }
 /*
 INTEGER_FUNCTION actRegister() // Description
@@ -127,6 +135,7 @@ INTEGER_FUNCTION getApplicationList () // Description
  }
 INTEGER_FUNCTION getApplicationStatusList () // Description
  {
+
  //method Content
  }
 INTEGER_FUNCTION getAudioSourceScreen () // Description
@@ -418,11 +427,11 @@ INTEGER_FUNCTION setPlayContent (string src$, integer majorCH, integer minorCH) 
 	{
 		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:hdmi?port=4\"}],\"version\":\"1.0\"}";
 	}
-	else if (src$ = "Video 1" || src$ = "Composite" || src$ = "composite")
+	else if (src$ = "Video1" || src$ = "Composite" || src$ = "composite")
 	{
 		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:composite?port=1\"}],\"version\":\"1.0\"}";
 	}
-	else if (src$ = "Video 2" || src$ = "Component" || src$ = "component")
+	else if (src$ = "Video2" || src$ = "Component" || src$ = "component")
 	{
 		body = "{\"id\":101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"extInput:component?port=1\"}],\"version\":\"1.0\"}";
 	}
@@ -544,9 +553,46 @@ PUSH Set_TV_Channel
 }
 PUSH TV_Channel_Up
 {
+	setPlayTvContent (1);
 }
 PUSH TV_Channel_Down
 {
+	setPlayTvContent (0);
+}
+PUSH SelectSourceHDMI1
+{
+	setPlayContent ("HDMI1", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceHDMI2
+{
+	setPlayContent ("HDMI2", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceHDMI3
+{
+	setPlayContent ("HDMI3", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceHDMI4
+{
+	setPlayContent ("HDMI4", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceVideo1
+{
+	setPlayContent ("Video1", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceVideo2
+{
+	setPlayContent ("Video2", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
+}
+PUSH SelectSourceWiDi
+{
+	setPlayContent ("widi", NewMajorCH, NewMinorCH);
+	getPlayingContentInfo ();
 }
 PUSH Poll_Main_Info
 {
@@ -593,6 +639,9 @@ Function Init()
 	RegisterDelegate(client,OnError,OnError);
 	PSK = "";
 	IP = "";
+	PSK = PSK$;
+	IP = IPAddress;
+	URL = "http://" + IP;
 }
 
 /*******************************************************************************************
