@@ -49,24 +49,25 @@ setPostalCode,setSoundSettings,setSpeakerSettings,togglePlayStatus;*/
 DIGITAL_INPUT Poll_Main_Info,Turn_Power_On, Turn_Power_Off, Turn_Mute_On, Turn_Mute_Off,_skip_;
 DIGITAL_INPUT Set_TV_Channel, TV_Channel_Up, TV_Channel_Down,_skip_;
 DIGITAL_INPUT 	SelectSourceHDMI1,SelectSourceHDMI2,SelectSourceHDMI3,SelectSourceHDMI4,
-				SelectSourceVideo1,SelectSourceVideo2,SelectSourceWiDi;
+				SelectSourceVideo1,SelectSourceVideo2,SelectSourceWiDi,SelectSourceTV;
 
 STRING_INPUT	PSK$[32],IPAddress[32],TVChannel[32],parseRx[BIGGESTSIZE];
 
-ANALOG_INPUT 	NewMajorCH, NewMinorCH;
+ANALOG_INPUT 	_SKIP_,NewMajorCH, NewMinorCH;
 
 ANALOG_INPUT	_skip_,_skip_,setVolumeValue;
 
 
-ANALOG_OUTPUT	volumeValue,_skip_,_skip_;
+ANALOG_OUTPUT	volumeValue,_skip_,_skip_,MajorCh,MinorCh;
 
-STRING_OUTPUT	ERR_MSG$;	
+STRING_OUTPUT	SelectedSrcCh$,_skip_,ERR_MSG$;	
 STRING_OUTPUT	RX$;
 
-DIGITAL_OUTPUT 	HDMI1SourceIsSelected,HDMI2SourceIsSelected,HDMI3SourceIsSelected,HDMI4SourceIsSelected,
-				Video1SourceIsSelected,Video2SourceIsSelected,WiDiSourceIsSelected;
+DIGITAL_OUTPUT 	_skip_,PowerIsOn,PowerIsOff,MuteIsOn,MuteIsOff,_skip_,_skip_,_skip_,_skip_,_skip_,
+				HDMI1SourceIsSelected,HDMI2SourceIsSelected,HDMI3SourceIsSelected,HDMI4SourceIsSelected,
+				Video1SourceIsSelected,Video2SourceIsSelected,WiDiSourceIsSelected,TvSourceIsSelected;
 
-DIGITAL_OUTPUT ERR,_SKIP_,_SKIP_;
+DIGITAL_OUTPUT _SKIP_,ERR;
 
 #USER_SIMPLSHARP_LIBRARY "SimplSharpNetUtils"
 
@@ -116,12 +117,11 @@ FUNCTION sendMessage(string resource, string body)
 {	
 	SIGNED_LONG_INTEGER result;
 	STRING resizedResource[50];
-	Print("resource: %s",resource);
-	Print("body: %s",body);
-	Print("URL: %s",URL);
-	Print("PSK: %s",PSK);
+//	Print("resource: %s",resource);
+//	Print("body: %s",body);
+//	Print("URL: %s",URL);
+//	Print("PSK: %s",PSK);
 	MakeString(resizedResource, "sony/%s",resource);
-	//resizedResource = "sony/" + resource;
 	result = client.SendCommand(URL, resizedResource, body, PSK);
 }
 /*
@@ -594,6 +594,12 @@ PUSH SelectSourceWiDi
 	setPlayContent ("widi", NewMajorCH, NewMinorCH);
 	getPlayingContentInfo ();
 }
+PUSH SelectSourceTV
+{
+	body = "{\"id\": 101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"tv:atscc\"}],\"version\":\"1.0\"}";
+	sendMessage("avContent", body);
+	getPlayingContentInfo ();
+}
 PUSH Poll_Main_Info
 {
 	getPowerStatus ();
@@ -623,13 +629,13 @@ CHANGE IPAddress
 
 Callback Function OnReceive(String s)
 {
-	TRACE("On Rx$");
+	TRACE("OnReceive Rx$");
 	RX$ = s;
 }
 
 Callback Function OnError(String s)
 {
-	TRACE("On Rx$");
+	TRACE("OnError Rx$");
 	RX$ = s;
 }
 
