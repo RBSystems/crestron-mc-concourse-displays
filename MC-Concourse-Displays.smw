@@ -19,13 +19,13 @@ S1Nd=2
 SLNd=3
 PrNm=MC-Concourse-Displays.smw
 CmVr=3.03
-DbVr=61.06.001.00
-DvcDbVr=82.05.002.00
+DbVr=62.00.002.00
+DvcDbVr=83.00.001.00
 PgmNm=David Allred
 DlrNm=BYU
 CltNm=MC Concourse Displays
-SmVr=1026
-DvVr=1026
+SmVr=1027
+DvVr=1027
 TpN1=1
 TpN2=2
 TpN3=3
@@ -2352,20 +2352,6 @@ Mx3=0
 [
 ObjTp=Bw
 H=1
-Lx=16
-Ly=50
-Rx=992
-Ry=833
-Xm=-1
-Ym=-1
-SH=285
-Z=100
-Ht=4
-Hi=26
-]
-[
-ObjTp=Bw
-H=1
 Lx=3
 Ly=11
 Rx=1049
@@ -2377,6 +2363,20 @@ Z=100
 P=792
 Ht=4
 Hi=43
+]
+[
+ObjTp=Bw
+H=1
+Lx=16
+Ly=50
+Rx=992
+Ry=833
+Xm=-1
+Ym=-1
+SH=285
+Z=100
+Ht=1
+Hi=22
 ]
 [
 ObjTp=Bw
@@ -3106,6 +3106,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display S2 TCP/IP Client
 mI=4
 I1=447
@@ -3129,6 +3131,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display S3 TCP/IP Client
 mI=4
 I1=571
@@ -3152,6 +3156,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display S4 TCP/IP Client
 mI=4
 I1=694
@@ -3175,6 +3181,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display E1 TCP/IP Client
 mI=4
 I1=701
@@ -3198,6 +3206,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display E2 TCP/IP Client
 mI=4
 I1=706
@@ -3221,6 +3231,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display E3 TCP/IP Client
 mI=4
 I1=711
@@ -3244,6 +3256,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display E4 TCP/IP Client
 mI=4
 I1=716
@@ -3267,6 +3281,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display N1 TCP/IP Client
 mI=4
 I1=721
@@ -3290,6 +3306,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display N2 TCP/IP Client
 mI=4
 I1=726
@@ -3313,6 +3331,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display N3 TCP/IP Client
 mI=4
 I1=731
@@ -3336,6 +3356,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display N4 TCP/IP Client
 mI=4
 I1=736
@@ -3359,6 +3381,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display W1 TCP/IP Client
 mI=4
 I1=741
@@ -3382,6 +3406,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display W2 TCP/IP Client
 mI=4
 I1=746
@@ -3405,6 +3431,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display W3 TCP/IP Client
 mI=4
 I1=751
@@ -3428,6 +3456,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display W4 TCP/IP Client
 mI=4
 I1=756
@@ -3451,6 +3481,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=Display S1 TCP/IP Client
 mI=4
 I1=10
@@ -3474,6 +3506,8 @@ PrH=7
 CF=2
 n1I=2
 n1O=1
+OpF=0
+HandF=1
 Cmn1=MC-1212-D1 TCP/IP Client
 mI=4
 I1=729
@@ -10955,7 +10989,7 @@ I18=2344
 I19=2232
 I20=2233
 I21=2335
-I22=2333
+I22=2332
 I24=148
 I25=146
 I28=2336
@@ -12058,7 +12092,6 @@ Nm=DisplayW4Mv
 ObjTp=Sg
 H=204
 Nm=//DisplayS1HDMI3SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -12372,7 +12405,6 @@ Nm=DisplayW4Connect-Fb*
 ObjTp=Sg
 H=266
 Nm=//DisplayS1TV_Channel_Up
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -14915,7 +14947,6 @@ Nm=//DisplayMC1211clock
 ObjTp=Sg
 H=763
 Nm=//DisplayS1TV_Channel_Down
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -22358,11 +22389,13 @@ Nm=UnselectDisplayW4
 ObjTp=Sg
 H=2232
 Nm=PSK$
+SgTp=4
 ]
 [
 ObjTp=Sg
 H=2233
 Nm=DisplayS1IpAddress
+SgTp=4
 ]
 [
 ObjTp=Sg
@@ -22393,11 +22426,13 @@ Nm=//DisplayMC1211LEFT_ARROW
 ObjTp=Sg
 H=2239
 Nm=//DisplayS1volumeValue
+SgTp=2
 ]
 [
 ObjTp=Sg
 H=2240
 Nm=//DisplayS1ERR_MSG$
+SgTp=4
 ]
 [
 ObjTp=Sg
@@ -22860,63 +22895,54 @@ Nm=//DisplayMC1211Control_Button_is_Not_Locked
 ObjTp=Sg
 H=2332
 Nm=//DisplayS1RX$
-]
-[
-ObjTp=Sg
-H=2333
-Nm=//DisplayS1parseRx
+SgTp=4
 ]
 [
 ObjTp=Sg
 H=2334
 Nm=//DisplayS1HDMI4SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2335
 Nm=//DisplayS1TVChannel
+SgTp=4
 ]
 [
 ObjTp=Sg
 H=2336
 Nm=DisplayS1setVolumeValue
+SgTp=2
 ]
 [
 ObjTp=Sg
 H=2337
 Nm=//DisplayS1Video1SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2338
 Nm=//DisplayS1Video2SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2339
 Nm=//DisplayS1WiDiSourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2341
 Nm=//DisplayS1HDMI2SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2342
 Nm=//DisplayS1SelectSourceHDMI3
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2343
 Nm=//DisplayS1ERR
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -22927,31 +22953,26 @@ Nm=DisplayS1SelectSourceTV
 ObjTp=Sg
 H=2345
 Nm=//DisplayS1SelectSourceHDMI4
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2346
 Nm=//DisplayS1SelectSourceVideo1
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2347
 Nm=DisplayS1PowerIsOff
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2348
 Nm=//DisplayS1SelectSourceVideo2
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2349
 Nm=//DisplayS1SelectSourceHDMI2
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -23004,31 +23025,26 @@ Nm=//DisplayMC1211POWER
 ObjTp=Sg
 H=2359
 Nm=//DisplayS1SelectSourceWiDi
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2360
 Nm=DisplayS1MuteIsOn
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2361
 Nm=DisplayS1MuteIsOff
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2362
 Nm=DisplayS1HDMI1SourceIsSelected
-SgTp=15
 ]
 [
 ObjTp=Sg
 H=2363
 Nm=DisplayS1PowerIsOn
-SgTp=15
 ]
 [
 ObjTp=Sg
@@ -23040,5 +23056,4 @@ SgTp=4
 ObjTp=Sg
 H=2365
 Nm=DisplayS1TvSourceIsSelected
-SgTp=15
 ]

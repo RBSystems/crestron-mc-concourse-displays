@@ -70,7 +70,7 @@ DIGITAL_OUTPUT 	_skip_,PowerIsOn,PowerIsOff,MuteIsOn,MuteIsOff,_skip_,_skip_,_sk
 DIGITAL_OUTPUT _SKIP_,ERR;
 
 #USER_SIMPLSHARP_LIBRARY "SimplSharpNetUtils"
-
+#USER_SIMPLSHARP_LIBRARY "SimplSharpStringUtils"
 
 /*******************************************************************************************
   Global Variables
@@ -83,6 +83,7 @@ STRING PSK[32],IP[32],body[1024],TVCH[32],rx[BIGGESTSIZE],URL[1024];
 INTEGER volume;
 
 HTTPRequest client;
+StringUtils stringParse;
 
 /*******************************************************************************************
   Functions -- No Editing
@@ -123,6 +124,18 @@ FUNCTION sendMessage(string resource, string body)
 //	Print("PSK: %s",PSK);
 	MakeString(resizedResource, "sony/%s",resource);
 	result = client.SendCommand(URL, resizedResource, body, PSK);
+}
+STRING_FUNCTION ResponceSendMessage(string resource, string body) 
+{	
+	string result[1024];
+	STRING resizedResource[50];
+//	Print("resource: %s",resource);
+//	Print("body: %s",body);
+//	Print("URL: %s",URL);
+//	Print("PSK: %s",PSK);
+	MakeString(resizedResource, "sony/%s",resource);
+	result = client.StringSendCommand(URL, resizedResource, body, PSK);
+	Return (result);
 }
 /*
 INTEGER_FUNCTION actRegister() // Description
@@ -246,8 +259,14 @@ INTEGER_FUNCTION getPowerSavingMode () // Description
  }*/
 INTEGER_FUNCTION getPowerStatus () // Description
  {
+//	string responce[1024];
+	string status[16];
 	body = "{\"id\":50,\"method\":\"getPowerStatus\",\"params\":[],\"version\":\"1.0\"}";
-	sendMessage("system", body);
+//	responce = ResponceSendMessage("system", body);
+	SendMessage("system", body);
+	print("Rx: %s",rx);
+	status = StringParse.getSonyResponseValue(rx, "status");
+	Print("status: %s",status);
  }
 INTEGER_FUNCTION setPowerStatus (integer n)	//True or false, 1 for on, 0 for off
  {
@@ -625,6 +644,12 @@ CHANGE IPAddress
 {
 	IP = IPAddress;
 	URL = "http://" + IP;
+}
+
+CHANGE parseRx
+{
+	rx = "";
+	rx = parseRx;
 }
 
 Callback Function OnReceive(String s)
