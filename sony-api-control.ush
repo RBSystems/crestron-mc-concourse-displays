@@ -116,11 +116,13 @@
   InputList2SigType8=Serial
   InputList2Cue9=[~UNUSED~]
   InputList2SigType9=Serial
-  InputList2Cue10=setVolumeValue
+  InputList2Cue10=SetSpeakerVolumeValue
   InputList2SigType10=Analog
-  OutputList2Cue1=volumeValue
+  InputList2Cue11=SetHeadphoneVolumeValue
+  InputList2SigType11=Analog
+  OutputList2Cue1=SpeakerVolumeValue
   OutputList2SigType1=Analog
-  OutputList2Cue2=[~UNUSED~]
+  OutputList2Cue2=HeadphoneVolumeValue
   OutputList2SigType2=Analog
   OutputList2Cue3=[~UNUSED~]
   OutputList2SigType3=Analog
@@ -139,8 +141,8 @@
   ParamCue1=[Reference Name]
   MinVariableInputs=18
   MaxVariableInputs=18
-  MinVariableInputsList2=10
-  MaxVariableInputsList2=10
+  MinVariableInputsList2=11
+  MaxVariableInputsList2=11
   MinVariableOutputs=20
   MaxVariableOutputs=20
   MinVariableOutputsList2=9
