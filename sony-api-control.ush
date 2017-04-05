@@ -98,6 +98,8 @@
   OutputSigType19=Digital
   OutputCue20=ERR
   OutputSigType20=Digital
+  OutputCue21=CommErr
+  OutputSigType21=Digital
   InputList2Cue1=PSK$
   InputList2SigType1=Serial
   InputList2Cue2=IPAddress
@@ -143,8 +145,8 @@
   MaxVariableInputs=18
   MinVariableInputsList2=11
   MaxVariableInputsList2=11
-  MinVariableOutputs=20
-  MaxVariableOutputs=20
+  MinVariableOutputs=21
+  MaxVariableOutputs=21
   MinVariableOutputsList2=9
   MaxVariableOutputsList2=9
   MinVariableParams=0

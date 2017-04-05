@@ -25,9 +25,16 @@ namespace SimplSharpStringUtils;
         // class events
 
         // class functions
-        STRING_FUNCTION JSONAttributes ( STRING body , STRING desiredAttribute );
         SIGNED_LONG_INTEGER_FUNCTION NumberOfMembers ( STRING stringToParse , STRING separatingcharacter );
         STRING_FUNCTION GetMemberOfStringArray ( STRING stringToParse , STRING separatingcharacter , SIGNED_LONG_INTEGER positionToReturn );
+        STRING_FUNCTION ToLower ( STRING source );
+        STRING_FUNCTION ToUpper ( STRING source );
+        STRING_FUNCTION Trim ( STRING source );
+        STRING_FUNCTION Contains ( STRING source , STRING searchString );
+        STRING_FUNCTION StartsWith ( STRING source , STRING searchString );
+        STRING_FUNCTION EndsWith ( STRING source , STRING searchString );
+        STRING_FUNCTION Replace ( STRING source , STRING replaceThis , STRING replaceWith );
+        STRING_FUNCTION JSONAttributes ( STRING body , STRING desiredAttribute );
         STRING_FUNCTION SonyResult ( STRING body , STRING desiredAttribute );
         STRING_FUNCTION ToString ();
         SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();

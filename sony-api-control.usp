@@ -67,7 +67,7 @@ DIGITAL_OUTPUT 	_skip_,PowerIsOn,PowerIsOff,MuteIsOn,MuteIsOff,_skip_,_skip_,_sk
 				HDMI1SourceIsSelected,HDMI2SourceIsSelected,HDMI3SourceIsSelected,HDMI4SourceIsSelected,
 				Video1SourceIsSelected,Video2SourceIsSelected,WiDiSourceIsSelected,TvSourceIsSelected;
 
-DIGITAL_OUTPUT _SKIP_,ERR;
+DIGITAL_OUTPUT _SKIP_,ERR, CommErr;
 
 #USER_SIMPLSHARP_LIBRARY "SimplSharpNetUtils"
 #USER_SIMPLSHARP_LIBRARY "SimplSharpStringUtils"
@@ -123,20 +123,18 @@ FUNCTION sendMessage(string resource, string body)
 //	Print("URL: %s",URL);
 //	Print("PSK: %s",PSK);
 	MakeString(resizedResource, "sony/%s",resource);
+//	trace("Error exists A: %ld", client.errorExists);
+	wait (350, CommErrWait)
+	{
+		Trace("Communication Error Time Out");
+		CommErr = 1;
+	}
 	result = client.SendCommand(URL, resizedResource, body, PSK);
+//	trace("Error exists B: %ld", client.errorExists);
+	cancelwait (CommErrWait);
+	CommErr = 0;
 }
-STRING_FUNCTION ResponceSendMessage(string resource, string body) 
-{	
-	string result[1024];
-	STRING resizedResource[50];
-//	Print("resource: %s",resource);
-//	Print("body: %s",body);
-//	Print("URL: %s",URL);
-//	Print("PSK: %s",PSK);
-	MakeString(resizedResource, "sony/%s",resource);
-	result = client.StringSendCommand(URL, resizedResource, body, PSK);
-	Return (result);
-}
+
 /*
 INTEGER_FUNCTION actRegister() // Description
  {
@@ -245,12 +243,12 @@ INTEGER_FUNCTION getPipSubScreenPosition () // Description
  }*/
 INTEGER_FUNCTION getPlayingContentInfo () // Description
  {
-	string SelectedInput[16],channel[10],Major$[4],Minor$[4];
+	string SelectedInput[32],channel[10],Major$[4],Minor$[4];
 	body = "{\"id\":103,\"method\":\"getPlayingContentInfo\",\"params\":[],\"version\":\"1.0\"}";
 	sendMessage("avContent", body);
-	trace("GetPlayingContent rx: %s",rx);
+//	trace("GetPlayingContent rx: %s",rx);
 	SelectedInput = StringParse.SonyResult(rx, "source");
-	trace("SelectedInput is: %s", SelectedInput);
+//	trace("SelectedInput is: %s", SelectedInput);
 	if(SelectedInput = "\"tv:atscc\"")
 	{
         HDMI1SourceIsSelected = 0;
@@ -271,7 +269,7 @@ INTEGER_FUNCTION getPlayingContentInfo () // Description
 	else
 	{
 		SelectedInput = StringParse.SonyResult(rx, "title");
-		trace("SelectedInput is: %s", SelectedInput);
+//		trace("SelectedInput is: %s", SelectedInput);
 		if(SelectedInput = "\"HDMI 1\"")
 		{
         	HDMI1SourceIsSelected = 1;
@@ -540,7 +538,8 @@ INTEGER_FUNCTION setAudioMute (integer mute) // 0 for Mute, 1 for unMute
 		body = "{\"id\":601,\"method\":\"setAudioMute\",\"params\":[{\"status\":true}],\"version\":\"1.0\"}";
 	}
 	sendMessage("audio", body);
-	getVolumeInformation ();
+	wait(10)
+		getVolumeInformation ();
  }/*
 INTEGER_FUNCTION setAudioSourceScreen () // Description
  {
@@ -550,7 +549,8 @@ INTEGER_FUNCTION setAudioVolume (integer vol) // vol should be between 0 - 100
  {
 	makestring (body, "{\"id\":601,\"method\":\"setAudioVolume\",\"params\":[{\"volume\":\"%u\",\"target\":\"speaker\"}],\"version\":\"1.0\"}", vol);
 	sendMessage("audio", body);
-	getVolumeInformation ();
+	wait(10)
+		getVolumeInformation ();
  }/*
 INTEGER_FUNCTION setCurrentTime () // Description
  {
@@ -592,7 +592,7 @@ INTEGER_FUNCTION setPlayContent (string src$, integer majorCH, integer minorCH) 
 	}
 
 	sendMessage("avContent", body);
-	wait(100);
+	wait(10)
 		getPlayingContentInfo ();
  }
 INTEGER_FUNCTION setPlayTvContent (integer UpOrDN)//True or false, 1 for ChanelUp, 0 for ChannelDn 
@@ -606,7 +606,8 @@ INTEGER_FUNCTION setPlayTvContent (integer UpOrDN)//True or false, 1 for ChanelU
 		body = "{\"id\":101,\"method\":\"setPlayTvContent\",\"params\":[{\"channel\":{\"shift\":\"-1\"}}],\"version\":\"1.1\"}";
 	}
 	sendMessage("avContent", body);
-	getPlayingContentInfo ();
+	wait(10)
+		getPlayingContentInfo ();
  }/*
 INTEGER_FUNCTION setPostalCode () // Description
  {
@@ -710,43 +711,38 @@ PUSH TV_Channel_Down
 PUSH SelectSourceHDMI1
 {
 	setPlayContent ("HDMI1", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceHDMI2
 {
 	setPlayContent ("HDMI2", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceHDMI3
 {
 	setPlayContent ("HDMI3", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceHDMI4
 {
 	setPlayContent ("HDMI4", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceVideo1
 {
 	setPlayContent ("Video1", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
+
 }
 PUSH SelectSourceVideo2
 {
 	setPlayContent ("Video2", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceWiDi
 {
 	setPlayContent ("widi", NewMajorCH, NewMinorCH);
-	getPlayingContentInfo ();
 }
 PUSH SelectSourceTV
 {
 	body = "{\"id\": 101,\"method\":\"setPlayContent\",\"params\":[{\"uri\":\"tv:atscc\"}],\"version\":\"1.0\"}";
 	sendMessage("avContent", body);
-	getPlayingContentInfo ();
+	wait(10)
+		getPlayingContentInfo ();
 }
 PUSH Poll_Main_Info
 {
@@ -791,9 +787,10 @@ Callback Function OnReceive(String s)
 Callback Function OnError(String s)
 {
 	
-//	RX$="";
+	trace("Client Error: %s", client.errorMessage);
 	rxstr = s;
 	ERR_msg$ = s;
+	ERR = 1;
 }
 
 Function Init()
@@ -807,6 +804,8 @@ Function Init()
 	URL = "http://" + IP;
 	status = "";
 	rx = "";
+	ERR = 0;
+	CommErr = 0;
 }
 
 /*******************************************************************************************

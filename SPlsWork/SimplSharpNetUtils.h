@@ -12,12 +12,9 @@ namespace SimplSharpNetUtils;
         // class events
 
         // class functions
-        STRING_FUNCTION jsonParse ( STRING input );
-        STRING_FUNCTION getAttributeValue ( STRING queryPath , STRING bodyToQuery );
         SIGNED_LONG_INTEGER_FUNCTION Post ( STRING body , STRING headers );
         SIGNED_LONG_INTEGER_FUNCTION Get ( STRING body , STRING headers );
         SIGNED_LONG_INTEGER_FUNCTION SendCommand ( STRING baseURL , STRING resource , STRING cmd , STRING psk );
-        STRING_FUNCTION StringSendCommand ( STRING baseURL , STRING resource , STRING cmd , STRING psk );
         STRING_FUNCTION ToString ();
         SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
 
@@ -25,6 +22,8 @@ namespace SimplSharpNetUtils;
         STRING URL[];
         SIGNED_LONG_INTEGER Port;
         SIGNED_LONG_INTEGER numResponseAttributes;
+        SIGNED_LONG_INTEGER errorExists;
+        STRING errorMessage[];
 
         // class properties
         DelegateProperty errorHandler OnError;
