@@ -80,7 +80,7 @@ DIGITAL_OUTPUT _SKIP_,ERR, CommErr;
 *******************************************************************************************/
 
 STRING PSK[32],IP[32],body[1024],TVCH[32],rx[BIGGESTSIZE],rxStr[BIGGESTSIZE],URL[1024],status[16];
-INTEGER volume;
+INTEGER volume,PowerIsOnGv;
 
 HTTPRequest client;
 StringUtils stringParse;
@@ -370,12 +370,14 @@ INTEGER_FUNCTION getPowerStatus () // Description
 	{
 //		trace("status = active");
 		PowerIsOn = 1;
+		PowerIsOnGv = 1;
 		PowerIsOff = 0;
 	}
 	else if (status = "\"standby\"")
 	{
 //		trace("status = standby");
 		PowerIsOn = 0;
+		PowerIsOnGv = 0;
 		PowerIsOff = 1;
 	}
 	RX$ = status;
@@ -748,9 +750,15 @@ PUSH Poll_Main_Info
 {
 	getPowerStatus ();
 	wait(10)
-		getPlayingContentInfo ();
+	{
+		if(PowerIsOnGv = 1)
+			getPlayingContentInfo ();
+	}
 	wait(20)
-		getVolumeInformation ();
+	{
+		if(PowerIsOnGv = 1)
+			getVolumeInformation ();
+    }
 }
 CHANGE SetSpeakerVolumeValue
 {
