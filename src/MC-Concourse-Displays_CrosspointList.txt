@@ -1,4 +1,4 @@
-Crosspoint listing for C:\Users\dja\Documents\GIT-repo\Crestron-MC-Concourse-Displays\MC-Concourse-Displays.SMW
+Crosspoint listing for C:\Users\dja\Documents\GIT-repo\Crestron-MC-Concourse-Displays\src\MC-Concourse-Displays.SMW
 
 Note:  Crosspoint symbols with EquipID or ControlID set to 0d are not routeable.
 
