@@ -1,8 +1,26 @@
 namespace SimplSharpNetUtils;
         // class declarations
-         class HTTPRequest;
          class HttpGetter;
+         class HTTPRequest;
          class TCPSocket;
+     class HttpGetter 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        LONG_INTEGER_FUNCTION Fetch ( STRING url , STRING filename );
+        STRING_FUNCTION ToString ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        STRING ErrorMsg[];
+    };
+
      class HTTPRequest 
     {
         // class delegates
@@ -28,24 +46,6 @@ namespace SimplSharpNetUtils;
         // class properties
         DelegateProperty errorHandler OnError;
         DelegateProperty responseHandler OnResponse;
-    };
-
-     class HttpGetter 
-    {
-        // class delegates
-
-        // class events
-
-        // class functions
-        LONG_INTEGER_FUNCTION Fetch ( STRING url , STRING filename );
-        STRING_FUNCTION ToString ();
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-
-        // class variables
-        INTEGER __class_id__;
-
-        // class properties
-        STRING ErrorMsg[];
     };
 
      class TCPSocket 

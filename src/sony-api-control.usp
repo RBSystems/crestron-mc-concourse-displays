@@ -83,7 +83,7 @@ STRING PSK[32],IP[32],body[1024],TVCH[32],rx[BIGGESTSIZE],rxStr[BIGGESTSIZE],URL
 INTEGER volume,PowerIsOnGv;
 
 HTTPRequest client;
-StringUtils stringParse;
+StringUtils stringUtility;
 
 /*******************************************************************************************
   Functions -- No Editing
@@ -247,7 +247,7 @@ INTEGER_FUNCTION getPlayingContentInfo () // Description
 	body = "{\"id\":103,\"method\":\"getPlayingContentInfo\",\"params\":[],\"version\":\"1.0\"}";
 	sendMessage("avContent", body);
 //	trace("GetPlayingContent rx: %s",rx);
-	SelectedInput = StringParse.SonyResult(rx, "source");
+	SelectedInput = stringUtility.SonyResult(rx, "source");
 //	trace("SelectedInput is: %s", SelectedInput);
 	if(SelectedInput = "\"tv:atscc\"")
 	{
@@ -259,16 +259,16 @@ INTEGER_FUNCTION getPlayingContentInfo () // Description
 		Video2SourceIsSelected = 0;
 		WiDiSourceIsSelected = 0;
 		TvSourceIsSelected = 1;
-		channel = StringParse.SonyResult(rx, "dispNum");
-		Major$ = stringParse.GetMemberOfStringArray(channel,".",0);
-		Minor$ = stringParse.GetMemberOfStringArray(channel,".",1);
+		channel = stringUtility.SonyResult(rx, "dispNum");
+		Major$ = stringUtility.GetMemberOfStringArray(channel,".",0);
+		Minor$ = stringUtility.GetMemberOfStringArray(channel,".",1);
 		SelectedSrcCh$ = channel;
 		MajorCh = atoi(Major$);
 		MinorCh = atoi(Minor$);
 	}
 	else
 	{
-		SelectedInput = StringParse.SonyResult(rx, "title");
+		SelectedInput = stringUtility.SonyResult(rx, "title");
 //		trace("SelectedInput is: %s", SelectedInput);
 		if(SelectedInput = "\"HDMI 1\"")
 		{
@@ -364,7 +364,7 @@ INTEGER_FUNCTION getPowerStatus () // Description
 	body = "{\"id\":50,\"method\":\"getPowerStatus\",\"params\":[],\"version\":\"1.0\"}";
 	SendMessage("system", body);
 //	trace("Get Power Rx: %s",rx);
-	status = StringParse.SonyResult(rx, "status");
+	status = stringUtility.SonyResult(rx, "status");
 //	trace("Get Power status: %s", status);
 	if (status = "\"active\"")
 	{
@@ -482,10 +482,10 @@ INTEGER_FUNCTION getVolumeInformation () // Description
 	integer placeToReturn,numOfReturnedVolumes;
 	body = "{\"id\":33,\"method\":\"getVolumeInformation\",\"params\":[],\"version\":\"1.0\"}";
 	sendMessage("audio", body);
-	status = stringParse.SonyResult(rx,"volume");
-//	place = stringParse.NumberOfMembers(status,",");
-	speaker = stringParse.GetMemberOfStringArray(status,",",0);
-	headphone = stringParse.GetMemberOfStringArray(status,",",1);
+	status = stringUtility.SonyResult(rx,"volume");
+//	place = stringUtility.NumberOfMembers(status,",");
+	speaker = stringUtility.GetMemberOfStringArray(status,",",0);
+	headphone = stringUtility.GetMemberOfStringArray(status,",",1);
 //	TRACE("speaker: %s",speaker);
 //	TRACE("headphone: %s", headphone);
 //	TRACE("status of volume: %s",status);
